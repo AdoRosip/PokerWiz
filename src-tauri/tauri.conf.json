@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "PokerWiz",
+  "version": "0.1.0",
+  "identifier": "com.pokerwiz.app",
+  "build": {
+    "beforeDevCommand": "npm --prefix ../desktop-ui run dev",
+    "beforeBuildCommand": "npm --prefix ../desktop-ui run build",
+    "frontendDist": "../desktop-ui/dist",
+    "devUrl": "http://localhost:1420"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "PokerWiz",
+        "width": 1440,
+        "height": 960,
+        "resizable": true
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all"
+  }
+}

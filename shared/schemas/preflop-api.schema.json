@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PokerWiz Preflop API",
+  "type": "object",
+  "definitions": {
+    "request": {
+      "type": "object",
+      "required": ["format", "effective_stack_bb", "hero_position", "hero_cards", "blinds", "action_history", "mode"],
+      "properties": {
+        "format": { "const": "6max_cash" },
+        "effective_stack_bb": { "type": "number", "exclusiveMinimum": 0 },
+        "hero_position": { "enum": ["UTG", "HJ", "CO", "BTN", "SB", "BB"] },
+        "hero_cards": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" }
+        },
+        "blinds": {
+          "type": "object",
+          "required": ["sb", "bb"],
+          "properties": {
+            "sb": { "type": "number" },
+            "bb": { "type": "number" }
+          }
+        },
+        "action_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["position", "action"],
+            "properties": {
+              "position": { "enum": ["UTG", "HJ", "CO", "BTN", "SB", "BB"] },
+              "action": { "enum": ["fold", "call", "open", "raise", "all_in"] },
+              "size_bb": { "type": "number" }
+            }
+          }
+        },
+        "mode": { "enum": ["strict_gto_frequencies", "highest_frequency_simplification", "highest_ev_pure"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "pokerwiz",
+  "private": true,
+  "version": "0.1.0",
+  "main": "dist-electron/desktop-shell/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:core\" \"npm:dev:ui\" \"npm:dev:electron\"",
+    "dev:core": "tsc -p tsconfig.node.json --watch --preserveWatchOutput",
+    "dev:ui": "npm --prefix desktop-ui run dev",
+    "dev:electron": "wait-on dist-electron/desktop-shell/main.js tcp:1420 && cross-env POKERWIZ_RENDERER_URL=http://127.0.0.1:1420 nodemon --watch dist-electron --ext js,json --exec \"electron .\"",
+    "build": "npm run build:core && npm --prefix desktop-ui run build",
+    "build:core": "tsc -p tsconfig.node.json",
+    "start": "electron .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^31.7.7",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.1",
+    "wait-on": "^8.0.3"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "dataset_version": "solver_dataset_v1_dev",
+  "game": "6max_cash",
+  "entries": [
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AKs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 2.15, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_150bb_plus_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "150bb_plus",
+      "hero_position": "CO",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 0.82, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.0, "ev_bb": 0.0 },
+        { "action_key": "call", "frequency": 0.12, "ev_bb": 0.18 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.88, "ev_bb": 0.31, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "72o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["btn_vs_co", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb_SB_call",
+      "line_signature": "facing_open_plus_call",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "QJs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.08, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.74, "ev_bb": 0.11 },
+        { "action_key": "3bet_11bb", "frequency": 0.18, "ev_bb": 0.09, "size_bb": 11.0 }
+      ],
+      "tags": ["multiway_defense"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb_CO_3bet_8bb",
+      "line_signature": "facing_open_and_3bet",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.18, "ev_bb": -0.12 },
+        { "action_key": "call", "frequency": 0.28, "ev_bb": 0.06 },
+        { "action_key": "4bet_22bb", "frequency": 0.54, "ev_bb": 0.19, "size_bb": 22.0 }
+      ],
+      "tags": ["cold_4bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2.5bb_HJ_3bet_8bb_CO_4bet_22bb",
+      "line_signature": "facing_open_3bet_4bet",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AKo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.05, "ev_bb": -0.15 },
+        { "action_key": "5bet_jam_100bb", "frequency": 0.95, "ev_bb": 0.42, "size_bb": 100.0 }
+      ],
+      "tags": ["5bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_20bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "20bb",
+      "hero_position": "BTN",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.20, "ev_bb": 0.12 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.80, "ev_bb": 0.30, "size_bb": 7.5 }
+      ],
+      "tags": ["shallow"],
+      "source": "solver_dataset_v1_dev"
+    }
+  ]
+}
