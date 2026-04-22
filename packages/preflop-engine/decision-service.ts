@@ -5,24 +5,17 @@ import type {
   Mode,
   StrategyAction,
   StrategyLookupResult,
-} from "../shared/contracts";
+} from "../../shared/contracts";
 
 function parseRecommendation(action: StrategyAction): HeroActionRecommendation {
   const key = action.action_key.toLowerCase();
   let actionType: HeroActionType;
-  if (key.startsWith("fold")) {
-    actionType = "fold";
-  } else if (key.startsWith("call")) {
-    actionType = "call";
-  } else if (key.startsWith("5bet_jam")) {
-    actionType = "5bet_jam";
-  } else if (key.startsWith("4bet")) {
-    actionType = "4bet";
-  } else if (key.startsWith("3bet")) {
-    actionType = "3bet";
-  } else {
-    actionType = "raise";
-  }
+  if (key.startsWith("fold")) actionType = "fold";
+  else if (key.startsWith("call")) actionType = "call";
+  else if (key.startsWith("5bet_jam")) actionType = "5bet_jam";
+  else if (key.startsWith("4bet")) actionType = "4bet";
+  else if (key.startsWith("3bet")) actionType = "3bet";
+  else actionType = "raise";
 
   const parsedSize =
     action.size_bb ??
@@ -31,10 +24,7 @@ function parseRecommendation(action: StrategyAction): HeroActionRecommendation {
       return lastToken?.endsWith("bb") ? Number(lastToken.slice(0, -2)) : undefined;
     })();
 
-  return {
-    action_type: actionType,
-    size_bb: Number.isFinite(parsedSize) ? parsedSize : undefined,
-  };
+  return { action_type: actionType, size_bb: Number.isFinite(parsedSize) ? parsedSize : undefined };
 }
 
 export class DecisionService {
@@ -55,8 +45,7 @@ export class DecisionService {
     if (mode === "highest_ev_pure") {
       recommendedAction.pure_simplification_note = "Highest-EV pure action selected";
     } else if (mode === "highest_frequency_simplification" && selected.frequency < 0.95) {
-      recommendedAction.pure_simplification_note =
-        `Pure simplification chosen from a mixed strategy; highest frequency action was ${Math.round(selected.frequency * 100)}%`;
+      recommendedAction.pure_simplification_note = `Pure simplification chosen from a mixed strategy; highest frequency action was ${Math.round(selected.frequency * 100)}%`;
     }
 
     return {
@@ -64,19 +53,14 @@ export class DecisionService {
       scenario_key: lookup.entry.scenario_key,
       normalized_hand: handIdentity,
       recommended_action: recommendedAction,
-      strategy_mix: actions.map((action) => ({
-        action_key: action.action_key,
-        frequency: action.frequency,
-      })),
-      ev: actions.map((action) => ({
-        action_key: action.action_key,
-        ev_bb: action.ev_bb ?? 0,
-      })),
+      strategy_mix: actions.map((action) => ({ action_key: action.action_key, frequency: action.frequency })),
+      ev: actions.map((action) => ({ action_key: action.action_key, ev_bb: action.ev_bb ?? 0 })),
       confidence: {
         dataset_match: lookup.dataset_match,
         hand_resolution: lookup.entry.hand_resolution,
         source: lookup.entry.source,
       },
+      node_coverage: lookup.node_coverage,
       explanation: [],
       warnings: lookup.warnings,
     };

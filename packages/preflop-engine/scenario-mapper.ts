@@ -1,5 +1,5 @@
-import type { NormalizedAction, NormalizedRequest, ScenarioDescriptor } from "../shared/contracts";
-import { formatBb } from "./domain";
+import type { NormalizedRequest, ScenarioDescriptor } from "../../shared/contracts";
+import { formatBb } from "../game-domain";
 
 const AGGRESSIVE_ACTIONS = new Set(["open", "raise", "all_in"]);
 

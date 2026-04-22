@@ -7,6 +7,18 @@ interface Props {
   loading: boolean;
 }
 
+function coverageTone(ratio: number): "coverage-strong" | "coverage-medium" | "coverage-light" {
+  if (ratio >= 0.7) return "coverage-strong";
+  if (ratio >= 0.3) return "coverage-medium";
+  return "coverage-light";
+}
+
+function coverageLabel(ratio: number): string {
+  if (ratio >= 0.7) return "Broad coverage";
+  if (ratio >= 0.3) return "Partial coverage";
+  return "Light coverage";
+}
+
 export function DecisionPanel({ request, result, error, loading }: Props) {
   return (
     <section className="panel">
@@ -48,6 +60,9 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
           <div className="warning-box">
             <h3>Unsupported Node</h3>
             <p>{result.unsupported_reason}</p>
+            <div className={`coverage-pill ${coverageTone(result.node_coverage.coverage_ratio)}`}>
+              {coverageLabel(result.node_coverage.coverage_ratio)}
+            </div>
           </div>
 
           <div className="detail-card">
@@ -59,6 +74,16 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
             <div className="row">
               <span>Hero Hand</span>
               <strong>{result.normalized_hand.hand_class}</strong>
+            </div>
+            <div className="row">
+              <span>Coverage</span>
+              <strong>
+                {result.node_coverage.covered_hand_classes}/{result.node_coverage.total_hand_classes}
+              </strong>
+            </div>
+            <div className="row">
+              <span>Coverage %</span>
+              <strong>{(result.node_coverage.coverage_ratio * 100).toFixed(1)}%</strong>
             </div>
           </div>
 
@@ -85,11 +110,20 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
       ) : (
         <div className="decision-layout">
           <div className="hero-callout">
-            <div className="decision-badge">{result.recommended_action.action_type}</div>
+            <div className="callout-topline">
+              <div className="decision-badge">{result.recommended_action.action_type}</div>
+              <div className={`coverage-pill ${coverageTone(result.node_coverage.coverage_ratio)}`}>
+                {coverageLabel(result.node_coverage.coverage_ratio)}
+              </div>
+            </div>
             <p className="decision-size">
               {result.recommended_action.size_bb ? `${result.recommended_action.size_bb}bb` : "No sizing"}
             </p>
             <p className="scenario-key">{result.scenario_key}</p>
+            <p className="coverage-summary">
+              Node coverage: {result.node_coverage.covered_hand_classes}/{result.node_coverage.total_hand_classes} hand classes
+              ({(result.node_coverage.coverage_ratio * 100).toFixed(1)}%)
+            </p>
           </div>
 
           <div className="detail-card">
@@ -129,6 +163,16 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
               <span>Resolution</span>
               <strong>{result.confidence.hand_resolution}</strong>
             </div>
+            <div className="stat-card">
+              <span>Node Coverage</span>
+              <strong>
+                {result.node_coverage.covered_hand_classes}/{result.node_coverage.total_hand_classes}
+              </strong>
+            </div>
+            <div className="stat-card">
+              <span>Coverage %</span>
+              <strong>{(result.node_coverage.coverage_ratio * 100).toFixed(1)}%</strong>
+            </div>
           </div>
 
           <div className="grid two">
@@ -162,10 +206,16 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
             </ul>
           </div>
 
-          {result.warnings.length > 0 ? (
+          {result.warnings.length > 0 || result.node_coverage.coverage_ratio < 0.3 ? (
             <div className="warning-box">
-              <h3>Warnings</h3>
+              <h3>Fidelity Notes</h3>
               <ul className="plain-list">
+                {result.node_coverage.coverage_ratio < 0.3 ? (
+                  <li>
+                    This node is still lightly populated in the current dev pack, so treat the recommendation as early
+                    coverage rather than a complete node view.
+                  </li>
+                ) : null}
                 {result.warnings.map((warning) => (
                   <li key={warning}>{warning}</li>
                 ))}

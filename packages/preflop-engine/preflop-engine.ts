@@ -1,13 +1,13 @@
-import type { EvaluatePreflopRequest, PreflopEvaluationResult } from "../shared/contracts";
+import type { EvaluatePreflopRequest, PreflopEvaluationResult, PreflopPackSummary } from "../../shared/contracts";
+import { PreflopStrategyRepository } from "../pack-repository/preflop-strategy-repository";
 import { DecisionService } from "./decision-service";
 import { ExplanationService } from "./explanation-service";
 import { NormalizationService } from "./normalization";
-import { InMemoryStrategyRepository } from "./strategy-repository";
 import { ScenarioMapper } from "./scenario-mapper";
 
 export class PreflopEngine {
   constructor(
-    private readonly repository: InMemoryStrategyRepository,
+    private readonly repository: PreflopStrategyRepository,
     private readonly normalizer = new NormalizationService(),
     private readonly mapper = new ScenarioMapper(),
     private readonly decisionService = new DecisionService(),
@@ -15,7 +15,7 @@ export class PreflopEngine {
   ) {}
 
   static async fromFile(path: string): Promise<PreflopEngine> {
-    const repository = await InMemoryStrategyRepository.fromFile(path);
+    const repository = await PreflopStrategyRepository.fromFile(path);
     return new PreflopEngine(repository);
   }
 
@@ -40,10 +40,15 @@ export class PreflopEngine {
         warnings: scenario.warnings,
         unsupported_reason: `No strategy pack entry was available for ${scenario.scenario_key}.`,
         nearest_supported_scenarios: this.repository.nearestSupportedScenarioKeys(scenario),
+        node_coverage: this.repository.coverageForScenario(scenario.scenario_key),
       };
     }
     const response = this.decisionService.select(normalized.mode, lookup, normalized.hand_identity);
     response.explanation = this.explanationService.build(normalized, scenario, response);
     return response;
+  }
+
+  summary(): PreflopPackSummary {
+    return this.repository.summary();
   }
 }

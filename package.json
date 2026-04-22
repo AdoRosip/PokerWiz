@@ -11,7 +11,12 @@
     "build": "npm run build:core && npm --prefix desktop-ui run build",
     "build:core": "tsc -p tsconfig.node.json",
     "start": "electron .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "normalize:solver:flat": "npm run build:core && node dist-electron/tools/solver-import/normalize-flat-preflop-export.js",
+    "import:solver": "npm run build:core && node dist-electron/tools/solver-import/import-preflop-solver.js",
+    "build:manifest": "npm run build:core && node dist-electron/tools/pack-builder/build-preflop-manifest.js",
+    "build:phase1-status": "npm run build:core && node dist-electron/tools/pack-builder/build-phase1-status.js",
+    "validate:pack": "npm run build:core && node dist-electron/tools/pack-validate/validate-preflop-pack.js"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

@@ -19,8 +19,30 @@ The app is not being designed as a local real-time solver for every arbitrary sp
 - Renderer UI: `React + TypeScript + Vite`
 - Runtime application logic: `TypeScript`
 - Offline data tooling: `Python`
-- Development pack format: `JSON`
-- Production pack formats: `SQLite` plus optional compact binary artifacts
+- Active pack format in Phase 1: `JSON`
+- Deferred production pack direction: `SQLite` plus optional compact binary artifacts when justified by pack size or runtime pressure
+
+## Execution Constraints
+
+These are active project decisions, not just suggestions.
+
+### Module Discipline
+
+- Keep the long-term module boundaries documented
+- Do not keep refactoring purely to match the target module map during Phase 1
+- Physical separation should happen only when it materially improves current work
+
+### Backend Discipline
+
+- JSON is the only active runtime pack backend in Phase 1
+- Do not build or maintain a real SQLite runtime path yet
+- Revisit SQLite only when pack size, memory use, or load time justify it
+
+### Validation Discipline
+
+- Basic pack validation is a Phase 1 requirement
+- Phase 1 must not rely on manual inspection alone for pack quality
+- Phase 2 still owns the full import / normalization / regeneration pipeline
 
 ## Phases
 
@@ -56,12 +78,17 @@ Deliverables:
 - clearer exact/approximate/unsupported reporting
 - robust node-key rules
 - realistic validation rules
+- basic pack validation and manifest tooling
 - repository abstraction cleanup
 - broader preflop dataset coverage
 
 Stop point:
 
 - preflop feels stable as a standalone study product
+
+Status:
+
+- complete
 
 ### Phase 2: Build The Pack Pipeline
 
@@ -75,7 +102,6 @@ Deliverables:
 - raw solver import format
 - normalization scripts
 - pack builder
-- pack validator
 - regression suite
 - versioned pack manifests
 
@@ -169,15 +195,30 @@ Possible deliverables:
 
 ## Current Active Phase
 
-Active phase: `Phase 0`
+Active phase: `Phase 2`
 
-Only Phase 0 should be worked in the immediate next steps.
+Phase 1 closeout is complete. Current work should now move into reproducible pack-pipeline work rather than more ad hoc preflop hardening.
+
+## Progress Tracking
+
+Resume source of truth:
+
+- [`docs/progress.md`](progress.md)
 
 ## Immediate Next Work
 
-1. finalize architecture and full-hand domain modeling
-2. define runtime module boundaries
-3. define strategy-pack roadmap and storage plan
-4. define how solver outputs become app-native packs
+1. define the next real solver-specific raw adapter beyond the generic flat export family
+2. add stronger import-side semantic validation beyond key-shape consistency where it materially improves fidelity
+3. keep future dataset work moving toward import/build tooling instead of manual editing
+4. keep validation, manifest generation, and Phase 1 status generation green as required quality gates
+5. expand coverage only when it directly helps pipeline verification or closes a real priority-family hole
 
-Anything beyond that should be treated as a later phase, not folded into the current task by default.
+Postflop modeling remains out of scope until the pack pipeline is reproducible enough to support future full-game work cleanly.
+
+## Phase 1 Priority Coverage
+
+Reference:
+
+- [`docs/preflop-priority-coverage.md`](preflop-priority-coverage.md)
+
+The working rule is to deepen high-frequency preflop families before expanding into lower-value branches.

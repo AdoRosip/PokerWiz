@@ -3,8 +3,15 @@ import type {
   NormalizedAction,
   NormalizedRequest,
   PlayerActionInput,
-} from "../shared/contracts";
-import { actsBefore, comboKey, DomainError, ensureDistinctCards, handClassKey, stackBucketFor } from "./domain";
+} from "../../shared/contracts";
+import {
+  actsBefore,
+  comboKey,
+  DomainError,
+  ensureDistinctCards,
+  handClassKey,
+  stackBucketFor,
+} from "../game-domain";
 
 const AGGRESSIVE_ACTIONS = new Set(["open", "raise", "all_in"]);
 
@@ -33,7 +40,10 @@ export class NormalizationService {
     };
   }
 
-  private normalizeActions(actionHistory: PlayerActionInput[], heroPosition: EvaluatePreflopRequest["hero_position"]): NormalizedAction[] {
+  private normalizeActions(
+    actionHistory: PlayerActionInput[],
+    heroPosition: EvaluatePreflopRequest["hero_position"],
+  ): NormalizedAction[] {
     let lastPositionIndex = -1;
     let highestRaiseLevel = 0;
     let sawLimp = false;
@@ -70,11 +80,8 @@ export class NormalizationService {
         throw new DomainError(`Unsupported raise size: ${normalizedSize}bb`);
       }
 
-      if (entry.action === "open") {
-        highestRaiseLevel = 1;
-      } else if (entry.action === "raise" || entry.action === "all_in") {
-        highestRaiseLevel += 1;
-      }
+      if (entry.action === "open") highestRaiseLevel = 1;
+      else if (entry.action === "raise" || entry.action === "all_in") highestRaiseLevel += 1;
 
       return {
         position: entry.position,

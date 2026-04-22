@@ -2,19 +2,23 @@ import path from "node:path";
 
 import { app, BrowserWindow, ipcMain } from "electron";
 
-import type { EvaluatePreflopRequest, PreflopEvaluationResult } from "../shared/contracts";
-import { PreflopEngine } from "../preflop-engine/preflop-engine";
+import type { EvaluatePreflopRequest, PreflopEvaluationResult, PreflopPackSummary } from "../shared/contracts";
+import { PreflopAnalysisService } from "../packages/app-services/preflop-analysis-service";
 
 let mainWindow: BrowserWindow | null = null;
 
 async function createWindow(): Promise<void> {
-  const engine = await PreflopEngine.fromFile(
+  const preflopAnalysisService = await PreflopAnalysisService.fromFile(
     path.join(app.getAppPath(), "data", "dev", "strategy-pack.v1.json"),
   );
 
   ipcMain.removeHandler("preflop:evaluate");
   ipcMain.handle("preflop:evaluate", async (_event, request: EvaluatePreflopRequest): Promise<PreflopEvaluationResult> => {
-    return engine.evaluate(request);
+    return preflopAnalysisService.evaluate(request);
+  });
+  ipcMain.removeHandler("preflop:summary");
+  ipcMain.handle("preflop:summary", async (): Promise<PreflopPackSummary> => {
+    return preflopAnalysisService.summary();
   });
 
   mainWindow = new BrowserWindow({

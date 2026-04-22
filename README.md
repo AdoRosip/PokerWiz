@@ -23,14 +23,28 @@ Electron + React + TypeScript.
 - [`docs/plan.md`](docs/plan.md)
 - [`docs/full-game-architecture.md`](docs/full-game-architecture.md)
 - [`docs/architecture.md`](docs/architecture.md)
+- [`docs/coverage-policy.md`](docs/coverage-policy.md)
+- [`docs/preflop-priority-coverage.md`](docs/preflop-priority-coverage.md)
+- [`docs/progress.md`](docs/progress.md)
+- [`docs/solver-import-contract.md`](docs/solver-import-contract.md)
 
-The repository is currently in `Phase 0`, which is the architecture and foundation phase for a hybrid full-game system.
+The repository has completed `Phase 1` and is now in `Phase 2`, which is the reproducible pack-pipeline phase.
+
+Important current constraints:
+
+- JSON is the only active pack backend
+- SQLite is deferred until it is justified by actual pack/runtime pressure
+- validation and manifest generation are already part of Phase 1
+- Phase 1 closeout status is tracked with a generated status artifact
 
 ## Repo Layout
 
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/plan.md`](docs/plan.md)
 - [`docs/full-game-architecture.md`](docs/full-game-architecture.md)
+- [`docs/coverage-policy.md`](docs/coverage-policy.md)
+- [`docs/preflop-priority-coverage.md`](docs/preflop-priority-coverage.md)
+- [`docs/progress.md`](docs/progress.md)
 - [`preflop-engine`](preflop-engine)
 - [`desktop-shell`](desktop-shell)
 - [`desktop-ui`](desktop-ui)
@@ -68,4 +82,34 @@ npm.cmd run build
 
 ```powershell
 npm.cmd test
+```
+
+6. Validate the strategy pack structure and row integrity:
+
+```powershell
+npm.cmd run validate:pack
+```
+
+7. Generate the deterministic pack manifest:
+
+```powershell
+npm.cmd run build:manifest
+```
+
+8. Convert a canonical solver-import document into an app-native strategy pack:
+
+```powershell
+npm.cmd run import:solver
+```
+
+9. Normalize the sample flat raw solver export into the canonical import contract:
+
+```powershell
+npm.cmd run normalize:solver:flat
+```
+
+10. Generate the current Phase 1 closeout/status report:
+
+```powershell
+npm.cmd run build:phase1-status
 ```

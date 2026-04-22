@@ -35,12 +35,23 @@ This is the optimal long-term choice because:
 ### Storage
 
 - Development packs: `JSON`
-- Production packs: `SQLite`
+- Active Phase 1 backend: `JSON`
+- Production packs: `SQLite` when pack size or runtime pressure justifies it
 - Optional high-performance artifacts: compact binary indexes side-by-side with SQLite
+
+Decision:
+
+- the repository abstraction may anticipate future backends
+- the project should not maintain two real runtime backends during Phase 1
 
 ## 3. System Modules
 
 The codebase should converge toward these modules.
+
+Important constraint:
+
+- this is the target architecture, not a mandate to keep refactoring Phase 1 around package boundaries
+- during Phase 1, only make physical/module changes that materially help the current preflop work
 
 ### `desktop-ui`
 
@@ -109,6 +120,11 @@ Responsibilities:
 - unsupported-state reporting
 - storage backend abstraction for JSON, SQLite, or binary
 
+Phase 1 note:
+
+- JSON is the only active backend
+- SQLite is deferred
+
 ### `tools/solver-import`
 
 Responsibilities:
@@ -133,6 +149,8 @@ Responsibilities:
 - regression tests
 - missing-node checks
 - EV/frequency sanity checks
+
+This is now a Phase 1 requirement, not only a future pipeline concern.
 
 ## 4. Generalized Domain Model
 
@@ -259,6 +277,11 @@ Solver-generated outputs from approved offline solving workflows.
 5. validate
 6. build packs
 7. publish versioned pack artifacts
+
+Implementation timing:
+
+- Phase 1 includes lightweight validation and manifest generation
+- Phase 2 owns the fuller import / normalization / regeneration workflow
 
 ### Why Separate The Pipeline
 

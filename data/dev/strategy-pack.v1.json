@@ -4,6 +4,183 @@
   "game": "6max_cash",
   "entries": [
     {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "AA",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 2.74, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "utg", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "AKo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 1.46, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "utg", "premium_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.84, "ev_bb": 0.54, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.16, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "utg", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.63, "ev_bb": 0.17, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.37, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "utg", "wheel_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 2.06, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "utg", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 1.24, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "utg", "premium_suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_UTG_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "UTG",
+      "hand_key": "KJs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.58, "ev_bb": 0.14, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.42, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "utg", "mixed_suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 1.03, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "hj", "broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "66",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.92, "ev_bb": 0.48, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.08, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "hj", "pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "Q9s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.71, "ev_bb": 0.19, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.29, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "hj", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "AJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.83, "ev_bb": 0.37, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.17, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "hj", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "98s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.64, "ev_bb": 0.16, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.36, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "hj", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_HJ_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "HJ",
+      "hand_key": "22",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.52, "ev_bb": 0.09, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.48, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "hj", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
       "scenario_key": "6max_cash_100bb_CO_first_in",
       "line_signature": "first_in",
       "stack_bucket": "100bb",
@@ -17,6 +194,241 @@
       "source": "solver_dataset_v1_dev"
     },
     {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.94, "ev_bb": 0.41, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.06, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "wheel_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.97, "ev_bb": 0.58, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.03, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "co", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "98s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.88, "ev_bb": 0.24, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "co", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "33",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.81, "ev_bb": 0.19, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.19, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "co", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "72o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KTs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 0.88, "size_bb": 2.5 }
+      ],
+      "tags": ["rfi", "button"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "54s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.78, "ev_bb": 0.21, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.22, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "button", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A2o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.59, "ev_bb": 0.12, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.41, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "button", "weak_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "QTo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.84, "ev_bb": 0.27, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.16, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "button", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "86s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.72, "ev_bb": 0.15, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.28, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "button", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "22",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_2.5bb", "frequency": 0.76, "ev_bb": 0.11, "size_bb": 2.5 },
+        { "action_key": "fold", "frequency": 0.24, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "button", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "A9o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_3bb", "frequency": 0.81, "ev_bb": 0.27, "size_bb": 3.0 },
+        { "action_key": "fold", "frequency": 0.19, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "22",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_3bb", "frequency": 0.68, "ev_bb": 0.14, "size_bb": 3.0 },
+        { "action_key": "fold", "frequency": 0.32, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "Q5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_3bb", "frequency": 0.57, "ev_bb": 0.08, "size_bb": 3.0 },
+        { "action_key": "fold", "frequency": 0.43, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "weak_suited_queen"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "KTo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_3bb", "frequency": 0.69, "ev_bb": 0.13, "size_bb": 3.0 },
+        { "action_key": "fold", "frequency": 0.31, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "raise_3bb", "frequency": 0.61, "ev_bb": 0.09, "size_bb": 3.0 },
+        { "action_key": "fold", "frequency": 0.39, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "54o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["rfi", "sb", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
       "scenario_key": "6max_cash_150bb_plus_CO_first_in",
       "line_signature": "first_in",
       "stack_bucket": "150bb_plus",
@@ -27,6 +439,149 @@
         { "action_key": "raise_2.5bb", "frequency": 1.0, "ev_bb": 0.82, "size_bb": 2.5 }
       ],
       "tags": ["rfi", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AKo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.14, "ev_bb": 0.43 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.86, "ev_bb": 0.58, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "premium_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.34, "ev_bb": 0.25 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.66, "ev_bb": 0.31, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AJs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.57, "ev_bb": 0.23 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.43, "ev_bb": 0.25, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "suited_broadway_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "99",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.48, "ev_bb": 0.24 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.52, "ev_bb": 0.27, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "55",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.08, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.82, "ev_bb": 0.11 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.10, "ev_bb": 0.07, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.68, "ev_bb": 0.16 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.20, "ev_bb": 0.14, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KJs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.73, "ev_bb": 0.18 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.27, "ev_bb": 0.17, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "QJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.24, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.69, "ev_bb": 0.09 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.07, "ev_bb": 0.05, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "marginal_offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "JTs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.81, "ev_bb": 0.19 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.19, "ev_bb": 0.15, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "T9s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.87, "ev_bb": 0.16 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.13, "ev_bb": 0.12, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "suited_connector"],
       "source": "solver_dataset_v1_dev"
     },
     {
@@ -49,12 +604,721 @@
       "line_signature": "facing_open",
       "stack_bucket": "100bb",
       "hero_position": "BTN",
+      "hand_key": "87s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.18, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.78, "ev_bb": 0.08 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.04, "ev_bb": 0.05, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_co", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
       "hand_key": "72o",
       "hand_resolution": "hand_class",
       "actions": [
         { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
       ],
       "tags": ["btn_vs_co", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.10, "ev_bb": 0.81 },
+        { "action_key": "3bet_8bb", "frequency": 0.90, "ev_bb": 0.94, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.42, "ev_bb": 0.20 },
+        { "action_key": "3bet_8bb", "frequency": 0.58, "ev_bb": 0.24, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.69, "ev_bb": 0.15 },
+        { "action_key": "3bet_8bb", "frequency": 0.31, "ev_bb": 0.16, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.78, "ev_bb": 0.11 },
+        { "action_key": "3bet_8bb", "frequency": 0.22, "ev_bb": 0.12, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.04, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.18, "ev_bb": 0.09 },
+        { "action_key": "3bet_8bb", "frequency": 0.78, "ev_bb": 0.16, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "98s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.10, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.84, "ev_bb": 0.08 },
+        { "action_key": "3bet_8bb", "frequency": 0.06, "ev_bb": 0.05, "size_bb": 8.0 }
+      ],
+      "tags": ["btn_vs_hj", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "Q8o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["btn_vs_hj", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.08, "ev_bb": 1.02 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.92, "ev_bb": 1.17, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.22, "ev_bb": 0.05 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.66, "ev_bb": 0.18, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.18, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.14, "ev_bb": 0.02 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.68, "ev_bb": 0.16, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "wheel_ace", "polar_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.27, "ev_bb": -0.04 },
+        { "action_key": "call", "frequency": 0.19, "ev_bb": 0.03 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.54, "ev_bb": 0.17, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "linear_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.46, "ev_bb": 0.12 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.54, "ev_bb": 0.15, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.22, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.41, "ev_bb": 0.03 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.37, "ev_bb": 0.06, "size_bb": 9.5 }
+      ],
+      "tags": ["sb_vs_btn", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "Q7o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["sb_vs_btn", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "KK",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.07, "ev_bb": 0.98 },
+        { "action_key": "3bet_10bb", "frequency": 0.93, "ev_bb": 1.13, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.16, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.20, "ev_bb": 0.04 },
+        { "action_key": "3bet_10bb", "frequency": 0.64, "ev_bb": 0.16, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.15, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.11, "ev_bb": 0.02 },
+        { "action_key": "3bet_10bb", "frequency": 0.74, "ev_bb": 0.14, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "wheel_ace", "polar_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.43, "ev_bb": 0.10 },
+        { "action_key": "3bet_10bb", "frequency": 0.57, "ev_bb": 0.13, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.10, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.73, "ev_bb": 0.07 },
+        { "action_key": "3bet_10bb", "frequency": 0.17, "ev_bb": 0.08, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.19, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.48, "ev_bb": 0.03 },
+        { "action_key": "3bet_10bb", "frequency": 0.33, "ev_bb": 0.05, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_co", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "Q8o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["sb_vs_co", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AKo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.36, "ev_bb": 0.24 },
+        { "action_key": "3bet_8bb", "frequency": 0.64, "ev_bb": 0.33, "size_bb": 8.0 }
+      ],
+      "tags": ["bb_vs_utg", "premium_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.31, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.69, "ev_bb": 0.06 }
+      ],
+      "tags": ["bb_vs_utg", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.18, "ev_bb": 0.74 },
+        { "action_key": "3bet_8bb", "frequency": 0.82, "ev_bb": 0.88, "size_bb": 8.0 }
+      ],
+      "tags": ["bb_vs_utg", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.62, "ev_bb": 0.16 },
+        { "action_key": "3bet_8bb", "frequency": 0.38, "ev_bb": 0.19, "size_bb": 8.0 }
+      ],
+      "tags": ["bb_vs_utg", "suited_broadway_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.16, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.78, "ev_bb": 0.07 },
+        { "action_key": "3bet_8bb", "frequency": 0.06, "ev_bb": 0.05, "size_bb": 8.0 }
+      ],
+      "tags": ["bb_vs_utg", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "Q9s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.23, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.77, "ev_bb": 0.05 }
+      ],
+      "tags": ["bb_vs_utg", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "J8o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["bb_vs_utg", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.15, "ev_bb": 0.86 },
+        { "action_key": "3bet_9bb", "frequency": 0.85, "ev_bb": 0.99, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.55, "ev_bb": 0.19 },
+        { "action_key": "3bet_9bb", "frequency": 0.45, "ev_bb": 0.22, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.74, "ev_bb": 0.14 },
+        { "action_key": "3bet_9bb", "frequency": 0.26, "ev_bb": 0.15, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.84, "ev_bb": 0.10 },
+        { "action_key": "3bet_9bb", "frequency": 0.16, "ev_bb": 0.09, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.32, "ev_bb": 0.08 },
+        { "action_key": "3bet_9bb", "frequency": 0.68, "ev_bb": 0.13, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.15, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.80, "ev_bb": 0.06 },
+        { "action_key": "3bet_9bb", "frequency": 0.05, "ev_bb": 0.04, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_hj", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "T7o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["bb_vs_hj", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.16, "ev_bb": 0.84 },
+        { "action_key": "3bet_9bb", "frequency": 0.84, "ev_bb": 0.97, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.59, "ev_bb": 0.19 },
+        { "action_key": "3bet_9bb", "frequency": 0.41, "ev_bb": 0.22, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.72, "ev_bb": 0.16 },
+        { "action_key": "3bet_9bb", "frequency": 0.28, "ev_bb": 0.17, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.81, "ev_bb": 0.11 },
+        { "action_key": "3bet_9bb", "frequency": 0.19, "ev_bb": 0.10, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.38, "ev_bb": 0.10 },
+        { "action_key": "3bet_9bb", "frequency": 0.62, "ev_bb": 0.15, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "wheel_ace", "polar_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.82, "ev_bb": 0.06 },
+        { "action_key": "3bet_9bb", "frequency": 0.06, "ev_bb": 0.04, "size_bb": 9.0 }
+      ],
+      "tags": ["bb_vs_co", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "94o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["bb_vs_co", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AA",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.11, "ev_bb": 1.42 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.89, "ev_bb": 1.58, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "premium"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.63, "ev_bb": 0.26 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.37, "ev_bb": 0.28, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.24, "ev_bb": 0.17 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.76, "ev_bb": 0.23, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "wheel_ace", "polar_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "KJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.11, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.78, "ev_bb": 0.12 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.11, "ev_bb": 0.10, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "T9s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.86, "ev_bb": 0.13 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.14, "ev_bb": 0.11, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "54s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.14, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.78, "ev_bb": 0.07 },
+        { "action_key": "3bet_9.5bb", "frequency": 0.08, "ev_bb": 0.05, "size_bb": 9.5 }
+      ],
+      "tags": ["bb_vs_btn", "low_suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "83o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["bb_vs_btn", "trash"],
       "source": "solver_dataset_v1_dev"
     },
     {
@@ -70,6 +1334,586 @@
         { "action_key": "3bet_11bb", "frequency": 0.18, "ev_bb": 0.09, "size_bb": 11.0 }
       ],
       "tags": ["multiway_defense"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.13, "ev_bb": 0.79 },
+        { "action_key": "3bet_8bb", "frequency": 0.87, "ev_bb": 0.92, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.47, "ev_bb": 0.19 },
+        { "action_key": "3bet_8bb", "frequency": 0.53, "ev_bb": 0.22, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.72, "ev_bb": 0.14 },
+        { "action_key": "3bet_8bb", "frequency": 0.28, "ev_bb": 0.15, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.83, "ev_bb": 0.10 },
+        { "action_key": "3bet_8bb", "frequency": 0.17, "ev_bb": 0.09, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.06, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.19, "ev_bb": 0.08 },
+        { "action_key": "3bet_8bb", "frequency": 0.75, "ev_bb": 0.14, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "98s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.82, "ev_bb": 0.07 },
+        { "action_key": "3bet_8bb", "frequency": 0.06, "ev_bb": 0.04, "size_bb": 8.0 }
+      ],
+      "tags": ["co_vs_hj", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "Q8o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["co_vs_hj", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.16, "ev_bb": 0.76 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.84, "ev_bb": 0.89, "size_bb": 7.5 }
+      ],
+      "tags": ["co_vs_utg", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.68, "ev_bb": 0.16 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.32, "ev_bb": 0.18, "size_bb": 7.5 }
+      ],
+      "tags": ["co_vs_utg", "suited_broadway_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "99",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.88, "ev_bb": 0.10 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.12, "ev_bb": 0.09, "size_bb": 7.5 }
+      ],
+      "tags": ["co_vs_utg", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.08, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.24, "ev_bb": 0.07 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.68, "ev_bb": 0.14, "size_bb": 7.5 }
+      ],
+      "tags": ["co_vs_utg", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.28, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.72, "ev_bb": 0.05 }
+      ],
+      "tags": ["co_vs_utg", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "KJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["co_vs_utg", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.10, "ev_bb": 0.88 },
+        { "action_key": "3bet_9bb", "frequency": 0.90, "ev_bb": 1.01, "size_bb": 9.0 }
+      ],
+      "tags": ["sb_vs_utg", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.48, "ev_bb": 0.14 },
+        { "action_key": "3bet_9bb", "frequency": 0.52, "ev_bb": 0.17, "size_bb": 9.0 }
+      ],
+      "tags": ["sb_vs_utg", "suited_broadway_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "99",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.71, "ev_bb": 0.08 },
+        { "action_key": "3bet_9bb", "frequency": 0.17, "ev_bb": 0.09, "size_bb": 9.0 }
+      ],
+      "tags": ["sb_vs_utg", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.11, "ev_bb": 0.02 },
+        { "action_key": "3bet_9bb", "frequency": 0.77, "ev_bb": 0.14, "size_bb": 9.0 }
+      ],
+      "tags": ["sb_vs_utg", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.31, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.43, "ev_bb": 0.03 },
+        { "action_key": "3bet_9bb", "frequency": 0.26, "ev_bb": 0.04, "size_bb": 9.0 }
+      ],
+      "tags": ["sb_vs_utg", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "Q9o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["sb_vs_utg", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.09, "ev_bb": 0.97 },
+        { "action_key": "3bet_10bb", "frequency": 0.91, "ev_bb": 1.11, "size_bb": 10.0 }
+      ],
+      "tags": ["bb_vs_sb", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.39, "ev_bb": 0.24 },
+        { "action_key": "3bet_10bb", "frequency": 0.61, "ev_bb": 0.29, "size_bb": 10.0 }
+      ],
+      "tags": ["bb_vs_sb", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "KJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.71, "ev_bb": 0.15 },
+        { "action_key": "3bet_10bb", "frequency": 0.29, "ev_bb": 0.17, "size_bb": 10.0 }
+      ],
+      "tags": ["bb_vs_sb", "offsuit_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "55",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.79, "ev_bb": 0.10 },
+        { "action_key": "3bet_10bb", "frequency": 0.21, "ev_bb": 0.11, "size_bb": 10.0 }
+      ],
+      "tags": ["bb_vs_sb", "small_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.63, "ev_bb": 0.08 },
+        { "action_key": "3bet_10bb", "frequency": 0.37, "ev_bb": 0.10, "size_bb": 10.0 }
+      ],
+      "tags": ["bb_vs_sb", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BB_vs_SB_open_3bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BB",
+      "hand_key": "T5o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["bb_vs_sb", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb_HJ_call",
+      "line_signature": "facing_open_plus_call",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KK",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.08, "ev_bb": 0.84 },
+        { "action_key": "3bet_12bb", "frequency": 0.92, "ev_bb": 1.21, "size_bb": 12.0 }
+      ],
+      "tags": ["btn_vs_utg_hj_call", "premium", "squeeze"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb_HJ_call",
+      "line_signature": "facing_open_plus_call",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.07, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.61, "ev_bb": 0.18 },
+        { "action_key": "3bet_12bb", "frequency": 0.32, "ev_bb": 0.16, "size_bb": 12.0 }
+      ],
+      "tags": ["btn_vs_utg_hj_call", "broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb_HJ_call",
+      "line_signature": "facing_open_plus_call",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.36, "ev_bb": -0.05 },
+        { "action_key": "call", "frequency": 0.64, "ev_bb": 0.07 }
+      ],
+      "tags": ["btn_vs_utg_hj_call", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.12, "ev_bb": 0.80 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.88, "ev_bb": 0.95, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_utg", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "AQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.66, "ev_bb": 0.17 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.34, "ev_bb": 0.19, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_utg", "suited_broadway_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "99",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.86, "ev_bb": 0.11 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.14, "ev_bb": 0.10, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_utg", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.07, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.21, "ev_bb": 0.08 },
+        { "action_key": "3bet_7.5bb", "frequency": 0.72, "ev_bb": 0.15, "size_bb": 7.5 }
+      ],
+      "tags": ["btn_vs_utg", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.24, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.76, "ev_bb": 0.05 }
+      ],
+      "tags": ["btn_vs_utg", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "KJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["btn_vs_utg", "trash"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "QQ",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.11, "ev_bb": 0.92 },
+        { "action_key": "3bet_10bb", "frequency": 0.89, "ev_bb": 1.05, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "premium_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "AQo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.18, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.22, "ev_bb": 0.03 },
+        { "action_key": "3bet_10bb", "frequency": 0.60, "ev_bb": 0.15, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "strong_offsuit_ace"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.17, "ev_bb": -0.03 },
+        { "action_key": "call", "frequency": 0.10, "ev_bb": 0.01 },
+        { "action_key": "3bet_10bb", "frequency": 0.73, "ev_bb": 0.13, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "wheel_ace", "bluff_3bet"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "KQs",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "call", "frequency": 0.47, "ev_bb": 0.10 },
+        { "action_key": "3bet_10bb", "frequency": 0.53, "ev_bb": 0.12, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "suited_broadway"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "77",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.12, "ev_bb": -0.01 },
+        { "action_key": "call", "frequency": 0.71, "ev_bb": 0.07 },
+        { "action_key": "3bet_10bb", "frequency": 0.17, "ev_bb": 0.08, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "middle_pair"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "76s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 0.24, "ev_bb": -0.02 },
+        { "action_key": "call", "frequency": 0.45, "ev_bb": 0.03 },
+        { "action_key": "3bet_10bb", "frequency": 0.31, "ev_bb": 0.05, "size_bb": 10.0 }
+      ],
+      "tags": ["sb_vs_hj", "suited_connector"],
+      "source": "solver_dataset_v1_dev"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "SB",
+      "hand_key": "Q7o",
+      "hand_resolution": "hand_class",
+      "actions": [
+        { "action_key": "fold", "frequency": 1.0, "ev_bb": 0.0 }
+      ],
+      "tags": ["sb_vs_hj", "trash"],
       "source": "solver_dataset_v1_dev"
     },
     {

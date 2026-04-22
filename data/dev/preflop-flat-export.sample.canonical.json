@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "import_version": 1,
+  "dataset_version": "solver_flat_export_sample_v1",
+  "game": "6max_cash",
+  "source_solver": "sample_solver",
+  "source_format": "flat_preflop_export_v1",
+  "source_tree": "6max_cash_100bb_rake_std_open_2.5",
+  "default_source_label": "sample_flat_export",
+  "rows": [
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AJo",
+      "hand_resolution": "hand_class",
+      "tags": [
+        "rfi",
+        "broadway"
+      ],
+      "actions": [
+        {
+          "action_key": "raise_2.5",
+          "frequency": 1,
+          "ev_bb": 0.42,
+          "size_bb": 2.5
+        }
+      ]
+    },
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "tags": [
+        "single_open",
+        "solver_bluff"
+      ],
+      "actions": [
+        {
+          "action_key": "3bet_7.5",
+          "frequency": 0.82,
+          "ev_bb": 0.31,
+          "size_bb": 7.5
+        },
+        {
+          "action_key": "call",
+          "frequency": 0.18,
+          "ev_bb": 0.14
+        }
+      ]
+    }
+  ]
+}

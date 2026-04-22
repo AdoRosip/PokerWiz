@@ -12,5 +12,5 @@
     "rootDir": ".",
     "types": ["node"]
   },
-  "include": ["desktop-shell/**/*.ts", "preflop-engine/**/*.ts", "shared/**/*.ts"]
+  "include": ["desktop-shell/**/*.ts", "packages/**/*.ts", "shared/**/*.ts", "tools/**/*.ts"]
 }

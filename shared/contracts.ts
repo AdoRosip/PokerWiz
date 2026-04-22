@@ -60,6 +60,47 @@ export interface Confidence {
   source: string;
 }
 
+export interface NodeCoverage {
+  total_hand_classes: number;
+  covered_hand_classes: number;
+  coverage_ratio: number;
+  is_complete: boolean;
+  matched_scenario_key: string;
+}
+
+export interface PackScenarioCoverageSummary extends NodeCoverage {
+  hero_position: Position;
+  line_signature: StrategyEntry["line_signature"];
+}
+
+export interface PreflopPackSummary {
+  dataset_version: string;
+  game: TableFormat;
+  total_scenarios: number;
+  total_entries: number;
+  fully_covered_scenarios: number;
+  partially_covered_scenarios: number;
+  empty_scenarios_observed: number;
+  average_scenario_coverage_ratio: number;
+  scenarios: PackScenarioCoverageSummary[];
+}
+
+export interface PreflopPackManifest {
+  schema_version: number;
+  manifest_version: number;
+  dataset_version: string;
+  game: TableFormat;
+  source_pack: string;
+  entry_count: number;
+  scenario_count: number;
+  fully_covered_scenarios: number;
+  partially_covered_scenarios: number;
+  average_scenario_coverage_ratio: number;
+  hero_position_scenario_counts: Record<Position, number>;
+  line_signature_scenario_counts: Record<ScenarioDescriptor["line_signature"], number>;
+  scenarios: PackScenarioCoverageSummary[];
+}
+
 export interface EvaluatePreflopResponse {
   status: "supported";
   scenario_key: string;
@@ -68,6 +109,7 @@ export interface EvaluatePreflopResponse {
   strategy_mix: WeightedAction[];
   ev: ActionEv[];
   confidence: Confidence;
+  node_coverage: NodeCoverage;
   explanation: string[];
   warnings: string[];
 }
@@ -85,6 +127,7 @@ export interface UnsupportedPreflopResponse {
   warnings: string[];
   unsupported_reason: string;
   nearest_supported_scenarios: string[];
+  node_coverage: NodeCoverage;
 }
 
 export type PreflopEvaluationResult = EvaluatePreflopResponse | UnsupportedPreflopResponse;
@@ -113,6 +156,63 @@ export interface StrategyPack {
   dataset_version: string;
   game: TableFormat;
   entries: StrategyEntry[];
+}
+
+export interface PreflopSolverImportAction {
+  action_key: string;
+  frequency: number;
+  ev_bb?: number;
+  size_bb?: number;
+}
+
+export interface PreflopSolverImportRow {
+  scenario_key: string;
+  line_signature: StrategyEntry["line_signature"];
+  stack_bucket: StackBucket;
+  hero_position: Position;
+  hand_key: string;
+  hand_resolution: HandResolution;
+  actions: PreflopSolverImportAction[];
+  tags?: string[];
+  source_label?: string;
+}
+
+export interface PreflopSolverImportDocument {
+  schema_version: number;
+  import_version: number;
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: string;
+  source_tree: string;
+  default_source_label?: string;
+  rows: PreflopSolverImportRow[];
+}
+
+export interface PreflopFlatSolverExportRow {
+  scenario_key: string;
+  line_signature: StrategyEntry["line_signature"];
+  stack_bucket: StackBucket;
+  hero_position: Position;
+  hand_key: string;
+  hand_resolution: HandResolution;
+  tags?: string[];
+  source_label?: string;
+  action_frequencies: Record<string, number>;
+  action_evs_bb?: Record<string, number>;
+  action_sizes_bb?: Record<string, number>;
+}
+
+export interface PreflopFlatSolverExportDocument {
+  schema_version: number;
+  export_version: number;
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: "flat_preflop_export_v1";
+  source_tree: string;
+  default_source_label?: string;
+  rows: PreflopFlatSolverExportRow[];
 }
 
 export interface NormalizedAction {
@@ -154,4 +254,5 @@ export interface StrategyLookupResult {
   entry: StrategyEntry;
   dataset_match: DatasetMatch;
   warnings: string[];
+  node_coverage: NodeCoverage;
 }

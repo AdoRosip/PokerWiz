@@ -1,11 +1,7 @@
-import type { EvaluatePreflopResponse, NormalizedRequest, ScenarioDescriptor } from "../shared/contracts";
+import type { EvaluatePreflopResponse, NormalizedRequest, ScenarioDescriptor } from "../../shared/contracts";
 
 export class ExplanationService {
-  build(
-    normalized: NormalizedRequest,
-    scenario: ScenarioDescriptor,
-    response: EvaluatePreflopResponse,
-  ): string[] {
+  build(normalized: NormalizedRequest, scenario: ScenarioDescriptor, response: EvaluatePreflopResponse): string[] {
     const lines = [
       `${normalized.hand_identity.combo} is normalized to ${normalized.hand_identity.hand_class} for strategy lookup.`,
     ];
@@ -30,7 +26,11 @@ export class ExplanationService {
       lines.push("Suited ace holdings gain blocker value while retaining enough playability when called.");
     }
 
-    if (response.recommended_action.action_type === "3bet" || response.recommended_action.action_type === "4bet" || response.recommended_action.action_type === "5bet_jam") {
+    if (
+      response.recommended_action.action_type === "3bet" ||
+      response.recommended_action.action_type === "4bet" ||
+      response.recommended_action.action_type === "5bet_jam"
+    ) {
       lines.push("The preferred line is aggressive, which indicates the hand benefits more from fold equity and range leverage than from passive realization.");
     } else if (response.recommended_action.action_type === "call") {
       lines.push("The strategy prefers realizing equity at the current price rather than inflating the pot immediately.");
