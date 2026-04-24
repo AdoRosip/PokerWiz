@@ -20,6 +20,20 @@ function coverageLabel(ratio: number): string {
 }
 
 export function DecisionPanel({ request, result, error, loading }: Props) {
+  if (result && result.status !== "supported" && result.status !== "unsupported") {
+    return (
+      <section className="panel">
+        <div className="panel-header">
+          <div>
+            <p className="eyebrow">Recommendation</p>
+            <h2>Best Action</h2>
+          </div>
+        </div>
+        <div className="error-box">Unexpected result state returned by the engine.</div>
+      </section>
+    );
+  }
+
   return (
     <section className="panel">
       <div className="panel-header">

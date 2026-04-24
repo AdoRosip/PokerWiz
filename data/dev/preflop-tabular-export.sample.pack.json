@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "dataset_version": "solver_tabular_export_sample_v1",
+  "game": "6max_cash",
+  "entries": [
+    {
+      "scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
+      "line_signature": "facing_open",
+      "stack_bucket": "100bb",
+      "hero_position": "BTN",
+      "hand_key": "A5s",
+      "hand_resolution": "hand_class",
+      "actions": [
+        {
+          "action_key": "3bet_7.5bb",
+          "frequency": 0.82,
+          "ev_bb": 0.31,
+          "size_bb": 7.5
+        },
+        {
+          "action_key": "call",
+          "frequency": 0.18,
+          "ev_bb": 0.14
+        }
+      ],
+      "tags": [
+        "single_open",
+        "solver_bluff"
+      ],
+      "source": "sample_tabular_export"
+    },
+    {
+      "scenario_key": "6max_cash_100bb_CO_first_in",
+      "line_signature": "first_in",
+      "stack_bucket": "100bb",
+      "hero_position": "CO",
+      "hand_key": "AJo",
+      "hand_resolution": "hand_class",
+      "actions": [
+        {
+          "action_key": "raise_2.5bb",
+          "frequency": 1,
+          "ev_bb": 0.42,
+          "size_bb": 2.5
+        }
+      ],
+      "tags": [
+        "rfi",
+        "broadway"
+      ],
+      "source": "sample_tabular_export"
+    }
+  ]
+}

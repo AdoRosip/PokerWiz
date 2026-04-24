@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { DecisionPanel } from "../components/DecisionPanel";
 import { InputPanel } from "../components/InputPanel";
 import { evaluatePreflop, getPreflopSummary } from "../lib/engine";
@@ -62,7 +62,7 @@ export function DecisionScreen() {
       .slice(0, 8);
   }, [summary, coverageLineFilter, coveragePositionFilter]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -74,7 +74,7 @@ export function DecisionScreen() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [request]);
 
   useEffect(() => {
     if (stage !== "study" || !readyForEvaluation) {
@@ -85,7 +85,7 @@ export function DecisionScreen() {
     }
 
     void handleSubmit();
-  }, [request, readyForEvaluation, stage]);
+  }, [handleSubmit, readyForEvaluation, stage]);
 
   useEffect(() => {
     void (async () => {
@@ -125,7 +125,7 @@ export function DecisionScreen() {
           <div className="setup-grid">
             <label>
               <span>Game Type</span>
-              <select defaultValue="cash">
+              <select value="cash" disabled>
                 <option value="cash">Cash Game</option>
                 <option value="sng" disabled>
                   Sit &amp; Go (later)
@@ -138,7 +138,7 @@ export function DecisionScreen() {
 
             <label>
               <span>Players</span>
-              <select defaultValue="6max">
+              <select value="6max" disabled>
                 <option value="6max">6-max</option>
                 <option value="9max" disabled>
                   9-max (later)

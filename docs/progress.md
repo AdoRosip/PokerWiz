@@ -7,8 +7,8 @@ This file is the resume point for the project. It should answer two questions qu
 
 ## Current Status
 
-- Active phase: `Phase 2`
-- Current emphasis: reproducible pack-pipeline work and solver-import expansion
+- Active phase: `Phase 3`
+- Current emphasis: systematic preflop coverage expansion on top of the completed pack pipeline
 - Runtime backend in use: `JSON` only
 - Production backend status: `SQLite deferred`
 
@@ -28,7 +28,7 @@ This file is the resume point for the project. It should answer two questions qu
 
 ### 3. Storage Strategy
 
-- JSON is the only active pack backend for Phase 1
+- JSON is the only active pack backend in the current runtime
 - SQLite is deferred until pack size or runtime performance justifies it
 - Do not maintain dual runtime backends early
 
@@ -36,7 +36,7 @@ This file is the resume point for the project. It should answer two questions qu
 
 - Validation is not deferred to Phase 2 anymore
 - Basic pack validation is required in Phase 1
-- Full solver-import / normalization / regeneration pipeline still belongs in Phase 2
+- Full solver-import / normalization / regeneration pipeline is now delivered through the completed Phase 2 tooling
 
 ### 5. Coverage Policy
 
@@ -52,10 +52,12 @@ This file is the resume point for the project. It should answer two questions qu
 ### Planning And Architecture
 
 - Phase plan documented
+- Phase 2 execution plan documented
 - Full-game architecture documented
 - Coverage policy documented
 - Preflop priority coverage documented
 - Phase 1 closeout/status artifact implemented
+- Phase 2 closeout/status artifact implemented
 
 ### Runtime And UI
 
@@ -63,6 +65,8 @@ This file is the resume point for the project. It should answer two questions qu
 - React study UI split into setup and study stages
 - Recommendation panel supports exact / approximate / unsupported flows
 - Node coverage metadata is surfaced in the UI
+- Setup-only selectors that are not yet supported are now explicitly non-interactive
+- Pre-Hero action UI no longer offers `raise` before any open has occurred
 - Setup screen includes:
   - current pack summary
   - lightweight coverage browser
@@ -114,10 +118,19 @@ Broad coverage exists now for:
 - Canonical preflop solver-import contract documented
 - Solver-import to strategy-pack converter implemented
 - Import validation now checks scenario-key and action metadata consistency
+- Canonical import validation now checks action-family semantics against line signature
+- Canonical import validation now checks scenario-level action-size consistency
+- Canonical import validation now checks scenario-level descriptor consistency
 - First raw-to-canonical flat export normalizer implemented
+- Second raw-to-canonical tabular export normalizer implemented
+- First named solver-profile adapter implemented
+- Operator workflow documented
 - Sample canonical solver-import document added
 - Sample flat raw solver export document added
+- Sample tabular raw solver export document added
+- Sample named simple CSV profile document added
 - Phase 1 status report builder implemented
+- Phase 2 status report builder implemented
 
 ## Current Metrics
 
@@ -125,12 +138,15 @@ At the latest verified point:
 
 - strategy rows: `139`
 - scenarios: `25`
-- tests: `98 passing`
+- tests: `111 passing`
 - pack validation: `passed`
 - manifest generation: `passed`
 - solver import conversion: `passed`
 - flat raw export normalization: `passed`
+- tabular raw export normalization: `passed`
+- named simple csv profile normalization: `passed`
 - phase 1 status report: `complete`
+- phase 2 status report: `complete`
 - phase 1 priority families present: `19 / 19`
 
 ## Current Commands
@@ -140,25 +156,32 @@ At the latest verified point:
 - validate pack: `npm.cmd run validate:pack`
 - build manifest: `npm.cmd run build:manifest`
 - normalize flat raw export: `npm.cmd run normalize:solver:flat`
+- normalize tabular raw export: `npm.cmd run normalize:solver:tabular`
+- normalize named simple csv profile: `npm.cmd run normalize:solver:simple-csv-profile`
 - import canonical solver document: `npm.cmd run import:solver`
 - build phase 1 status: `npm.cmd run build:phase1-status`
+- build phase 2 status: `npm.cmd run build:phase2-status`
 
 ## Recommended Next Steps
 
-1. Build the next real solver-specific raw adapter beyond the generic flat export family
-2. Add richer semantic validation around imported action trees where it materially improves solver-data fidelity
-3. Keep using the pack pipeline instead of direct manual pack editing
-4. Avoid SQLite implementation until JSON shows real pain
+Current recommended next implementation step:
 
-## Phase 1 Closeout Note
+1. Start Phase 3 with a documented preflop coverage wave driven through the pipeline, not by reverting to blind manual expansion
 
-Phase 1 is considered complete because:
+## Phase Closeout Notes
+
+Phase 1 is complete because:
 
 - the preflop runtime is stable
 - the documented Phase 1 priority families are all present in the dev pack
 - validation, manifest generation, canonical import conversion, and a first raw-export normalizer are all in place
 
-This does not mean the pack has full preflop hand-class coverage. It means the Phase 1 baseline and tooling goals are met, and the project should now advance through the Phase 2 pipeline path instead of continuing indefinite Phase 1 hardening.
+Phase 2 is complete because:
+
+- canonical import validation now rejects broken source data at row, scenario, and document levels
+- generic and named source adapters exist and are tested
+- the raw source -> canonical import -> strategy pack workflow is documented
+- deterministic manifest and phase-status artifacts are generated from the repo itself
 
 ## Notes For Resume
 
@@ -171,3 +194,4 @@ If the session stops here, the safest resume point is:
   - `npm.cmd run validate:pack`
   - `npm.cmd run build:manifest`
   - `npm.cmd run build:phase1-status`
+  - `npm.cmd run build:phase2-status`

@@ -595,6 +595,23 @@ describe("preflop engine", () => {
     expect(() => engine.evaluate(request)).toThrow();
   });
 
+  it("rejects zero-sized opens", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["As", "5s"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 0 }];
+    expect(() => engine.evaluate(request)).toThrow("requires a positive size");
+  });
+
+  it("rejects negative reraises", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Ah", "Qh"]);
+    request.action_history = [
+      { position: "HJ", action: "open", size_bb: 2.5 },
+      { position: "CO", action: "raise", size_bb: -8 },
+    ];
+    expect(() => engine.evaluate(request)).toThrow("requires a positive size");
+  });
+
   it("uses hand-class rows when combo rows are unavailable", async () => {
     const engine = await enginePromise;
     const request = baseRequest("BTN", ["Ac", "5c"]);

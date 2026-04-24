@@ -71,6 +71,11 @@ export class NormalizationService {
       }
 
       const normalizedSize = entry.size_bb == null ? undefined : Math.round(entry.size_bb * 10) / 10;
+      if (AGGRESSIVE_ACTIONS.has(entry.action) && normalizedSize != null && normalizedSize <= 0) {
+        throw new DomainError(
+          `Invalid action sequence: aggressive action from ${entry.position} requires a positive size`,
+        );
+      }
       if (entry.action === "open" && normalizedSize != null && normalizedSize > 10) {
         throw new DomainError(
           `Unsupported open size: ${normalizedSize}bb. v1 expects realistic preflop open sizes such as 2bb to 4bb; if you meant 3.0bb, enter 3 instead of 30.`,

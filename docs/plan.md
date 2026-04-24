@@ -109,6 +109,10 @@ Stop point:
 
 - packs can be regenerated and verified end to end
 
+Status:
+
+- complete
+
 ### Phase 3: Expand Preflop Coverage
 
 Goal:
@@ -195,23 +199,24 @@ Possible deliverables:
 
 ## Current Active Phase
 
-Active phase: `Phase 2`
+Active phase: `Phase 3`
 
-Phase 1 closeout is complete. Current work should now move into reproducible pack-pipeline work rather than more ad hoc preflop hardening.
+Phase 2 closeout is complete. Current work should now move into broader, more systematic preflop coverage expansion using the now-documented pack pipeline.
 
 ## Progress Tracking
 
 Resume source of truth:
 
 - [`docs/progress.md`](progress.md)
+- [`docs/phase2-plan.md`](phase2-plan.md)
 
 ## Immediate Next Work
 
-1. define the next real solver-specific raw adapter beyond the generic flat export family
-2. add stronger import-side semantic validation beyond key-shape consistency where it materially improves fidelity
-3. keep future dataset work moving toward import/build tooling instead of manual editing
-4. keep validation, manifest generation, and Phase 1 status generation green as required quality gates
-5. expand coverage only when it directly helps pipeline verification or closes a real priority-family hole
+Reference:
+
+- [`docs/progress.md`](progress.md)
+
+Immediate implementation should focus on Phase 3 coverage work, using the established Phase 2 pipeline rather than direct ad hoc pack editing where possible.
 
 Postflop modeling remains out of scope until the pack pipeline is reproducible enough to support future full-game work cleanly.
 

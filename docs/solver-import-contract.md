@@ -47,6 +47,15 @@ Each row contains:
 - optional `tags`
 - optional `source_label`
 
+The canonical import validator also checks semantic action-tree rules, for example:
+
+- `first_in` rows must not contain `call`
+- `facing_open` rows must not contain `4bet`
+- passive actions must not carry `size_bb`
+- aggressive actions must carry `size_bb`
+- the same `action_key` must not carry conflicting `size_bb` values across one scenario
+- the same `scenario_key` must not carry conflicting scenario descriptors across rows
+
 ## Current Scope
 
 Phase 1 supports:
@@ -55,11 +64,20 @@ Phase 1 supports:
 - validating duplicate row identity and basic row integrity
 - validating scenario-key consistency against row metadata
 - validating import action metadata before pack conversion
+- validating action-family semantics against line signature before pack conversion
+- validating scenario-level action-size consistency before pack conversion
+- validating scenario-level descriptor consistency before pack conversion
 - converting canonical rows into the app-native `StrategyPack`
 - validating the converted pack using the existing pack validator
 - normalizing one flat raw export family into the canonical import document
 
-Phase 1 still does not yet support:
+Current pipeline support now includes:
+
+- one generic flat JSON export family
+- one more realistic tabular TSV export family
+- one named simple CSV profile with fixed action slots
+
+Phase 2 still does not yet support:
 
 - direct Monker/Simple/Pio raw export parsing
 - multiple raw export adapters
@@ -96,6 +114,34 @@ Normalization command:
 npm.cmd run normalize:solver:flat
 ```
 
+Tabular raw export normalizer:
+
+- [`tools/solver-import/normalize-tabular-preflop-export.ts`](../tools/solver-import/normalize-tabular-preflop-export.ts)
+
+Default tabular sample input:
+
+- [`data/dev/preflop-tabular-export.sample.tsv`](../data/dev/preflop-tabular-export.sample.tsv)
+
+Tabular normalization command:
+
+```powershell
+npm.cmd run normalize:solver:tabular
+```
+
+Named simple CSV profile normalizer:
+
+- [`tools/solver-import/normalize-simple-csv-profile.ts`](../tools/solver-import/normalize-simple-csv-profile.ts)
+
+Default named profile sample input:
+
+- [`data/dev/preflop-simple-csv-profile.sample.csv`](../data/dev/preflop-simple-csv-profile.sample.csv)
+
+Named profile normalization command:
+
+```powershell
+npm.cmd run normalize:solver:simple-csv-profile
+```
+
 ## Design Rule
 
 Solver-specific adapters should normalize into this contract first.
@@ -127,3 +173,45 @@ The current pipeline is now:
 1. flat raw export
 2. canonical import document
 3. app-native strategy pack
+
+## Second Supported Raw Export Family
+
+The second raw export family is tabular and more representative of practical offline exports:
+
+- document type: `PreflopTabularSolverExportDocument`
+- source format tag: `tabular_preflop_export_v1`
+- sample transport: TSV
+
+Each tabular row repeats the shared solver metadata and supplies action data through dynamic columns:
+
+- `freq:<action_key>`
+- `ev:<action_key>`
+- `size:<action_key>`
+
+This lets the adapter handle mixed action sets without hard-coding a single fixed chart shape per node.
+
+The current broader pipeline is now:
+
+1. flat JSON export or tabular TSV export
+2. canonical import document
+3. app-native strategy pack
+
+## Third Supported Raw Export Family
+
+The third raw export family is the first named solver-profile adapter:
+
+- document type: `PreflopSimpleCsvProfileDocument`
+- source format tag: `simple_csv_profile_v1`
+- sample transport: CSV
+
+Profile assumptions:
+
+- each row carries shared solver metadata
+- each row uses fixed action slots:
+  - `action_1_key`, `action_1_freq`, `action_1_ev_bb`, `action_1_size_bb`
+  - `action_2_key`, ...
+  - up to `action_4_*`
+- empty action slots are allowed
+- this profile is intentionally narrow and does not claim compatibility with a commercial solver vendor
+
+This profile exists to provide the first explicit named adapter with a documented contract, fixture data, and tests.

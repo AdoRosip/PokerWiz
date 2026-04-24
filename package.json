@@ -13,9 +13,12 @@
     "start": "electron .",
     "test": "vitest run",
     "normalize:solver:flat": "npm run build:core && node dist-electron/tools/solver-import/normalize-flat-preflop-export.js",
+    "normalize:solver:tabular": "npm run build:core && node dist-electron/tools/solver-import/normalize-tabular-preflop-export.js",
+    "normalize:solver:simple-csv-profile": "npm run build:core && node dist-electron/tools/solver-import/normalize-simple-csv-profile.js",
     "import:solver": "npm run build:core && node dist-electron/tools/solver-import/import-preflop-solver.js",
     "build:manifest": "npm run build:core && node dist-electron/tools/pack-builder/build-preflop-manifest.js",
     "build:phase1-status": "npm run build:core && node dist-electron/tools/pack-builder/build-phase1-status.js",
+    "build:phase2-status": "npm run build:core && node dist-electron/tools/pack-builder/build-phase2-status.js",
     "validate:pack": "npm run build:core && node dist-electron/tools/pack-validate/validate-preflop-pack.js"
   },
   "devDependencies": {

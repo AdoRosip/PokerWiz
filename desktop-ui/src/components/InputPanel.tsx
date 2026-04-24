@@ -114,7 +114,7 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
       }
     }
 
-    return seenAggression ? actions : ["fold", "open", "raise", "all_in"];
+    return seenAggression ? actions : ["fold", "open", "all_in"];
   };
 
   const pickCard = (card: string) => {

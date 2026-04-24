@@ -215,6 +215,68 @@ export interface PreflopFlatSolverExportDocument {
   rows: PreflopFlatSolverExportRow[];
 }
 
+export interface PreflopTabularSolverExportRow {
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: "tabular_preflop_export_v1";
+  source_tree: string;
+  default_source_label?: string;
+  scenario_key: string;
+  line_signature: StrategyEntry["line_signature"];
+  stack_bucket: StackBucket;
+  hero_position: Position;
+  hand_key: string;
+  hand_resolution: HandResolution;
+  tags?: string[];
+  source_label?: string;
+  action_frequencies: Record<string, number>;
+  action_evs_bb?: Record<string, number>;
+  action_sizes_bb?: Record<string, number>;
+}
+
+export interface PreflopTabularSolverExportDocument {
+  schema_version: number;
+  export_version: number;
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: "tabular_preflop_export_v1";
+  source_tree: string;
+  default_source_label?: string;
+  rows: PreflopTabularSolverExportRow[];
+}
+
+export interface PreflopSimpleCsvProfileRow {
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: "simple_csv_profile_v1";
+  source_tree: string;
+  default_source_label?: string;
+  scenario_key: string;
+  line_signature: StrategyEntry["line_signature"];
+  stack_bucket: StackBucket;
+  hero_position: Position;
+  hand_key: string;
+  hand_resolution: HandResolution;
+  tags?: string[];
+  source_label?: string;
+  actions: PreflopSolverImportAction[];
+}
+
+export interface PreflopSimpleCsvProfileDocument {
+  schema_version: number;
+  export_version: number;
+  dataset_version: string;
+  game: TableFormat;
+  source_solver: string;
+  source_format: "simple_csv_profile_v1";
+  source_tree: string;
+  default_source_label?: string;
+  rows: PreflopSimpleCsvProfileRow[];
+}
+
 export interface NormalizedAction {
   position: Position;
   action: PlayerActionKind;

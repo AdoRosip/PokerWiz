@@ -27,8 +27,10 @@ Electron + React + TypeScript.
 - [`docs/preflop-priority-coverage.md`](docs/preflop-priority-coverage.md)
 - [`docs/progress.md`](docs/progress.md)
 - [`docs/solver-import-contract.md`](docs/solver-import-contract.md)
+- [`docs/phase2-plan.md`](docs/phase2-plan.md)
+- [`docs/pack-workflow.md`](docs/pack-workflow.md)
 
-The repository has completed `Phase 1` and is now in `Phase 2`, which is the reproducible pack-pipeline phase.
+The repository has completed `Phase 2` and is now in `Phase 3`, which is the broader preflop coverage phase.
 
 Important current constraints:
 
@@ -36,6 +38,7 @@ Important current constraints:
 - SQLite is deferred until it is justified by actual pack/runtime pressure
 - validation and manifest generation are already part of Phase 1
 - Phase 1 closeout status is tracked with a generated status artifact
+- Phase 2 pack-pipeline closeout is tracked with a generated status artifact
 
 ## Repo Layout
 
@@ -108,8 +111,26 @@ npm.cmd run import:solver
 npm.cmd run normalize:solver:flat
 ```
 
-10. Generate the current Phase 1 closeout/status report:
+10. Normalize the sample tabular raw solver export into the canonical import contract:
+
+```powershell
+npm.cmd run normalize:solver:tabular
+```
+
+11. Normalize the named simple CSV solver profile into the canonical import contract:
+
+```powershell
+npm.cmd run normalize:solver:simple-csv-profile
+```
+
+12. Generate the current Phase 1 closeout/status report:
 
 ```powershell
 npm.cmd run build:phase1-status
+```
+
+13. Generate the current Phase 2 closeout/status report:
+
+```powershell
+npm.cmd run build:phase2-status
 ```
