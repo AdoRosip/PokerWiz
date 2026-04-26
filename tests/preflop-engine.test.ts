@@ -64,6 +64,12 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("raise");
   });
 
+  it("supports broader utg first-in small-pair mixes", async () => {
+    const engine = await enginePromise;
+    const response = expectSupported(engine.evaluate(baseRequest("UTG", ["5h", "5d"])));
+    expect(["raise", "fold"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports hj first-in baseline coverage", async () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("HJ", ["Ks", "Qs"])));
@@ -74,6 +80,12 @@ describe("preflop engine", () => {
   it("supports broader hj first-in offsuit broadway coverage", async () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("HJ", ["Ah", "Jd"])));
+    expect(response.recommended_action.action_type).toBe("raise");
+  });
+
+  it("supports broader hj first-in suited ace coverage", async () => {
+    const engine = await enginePromise;
+    const response = expectSupported(engine.evaluate(baseRequest("HJ", ["Ah", "Qh"])));
     expect(response.recommended_action.action_type).toBe("raise");
   });
 
@@ -89,10 +101,22 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("raise");
   });
 
+  it("supports broader cutoff first-in suited broadway coverage", async () => {
+    const engine = await enginePromise;
+    const response = expectSupported(engine.evaluate(baseRequest("CO", ["Qh", "Th"])));
+    expect(response.recommended_action.action_type).toBe("raise");
+  });
+
   it("supports broader button first-in offsuit broadway coverage", async () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("BTN", ["Qh", "Td"])));
     expect(response.recommended_action.action_type).toBe("raise");
+  });
+
+  it("supports broader button first-in lower suited connector coverage", async () => {
+    const engine = await enginePromise;
+    const response = expectSupported(engine.evaluate(baseRequest("BTN", ["6h", "4h"])));
+    expect(["raise", "fold"]).toContain(response.recommended_action.action_type);
   });
 
   it("supports button versus cutoff open premium decisions", async () => {
@@ -101,6 +125,22 @@ describe("preflop engine", () => {
     request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(response.scenario_key).toBe("6max_cash_100bb_BTN_vs_CO_open_2.5bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports button versus cutoff open premium pair trap mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Ah", "Ad"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus cutoff open suited ace bluff-3bet coverage beyond A5s", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Ah", "4h"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
     expect(response.recommended_action.action_type).toBe("3bet");
   });
 
@@ -136,6 +176,14 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("call");
   });
 
+  it("supports button versus cutoff open deeper small-pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["2h", "2d"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.recommended_action.action_type).toBe("call");
+  });
+
   it("supports button versus cutoff open marginal offsuit broadway folds and calls", async () => {
     const engine = await enginePromise;
     const request = baseRequest("BTN", ["Qh", "Jd"]);
@@ -144,9 +192,25 @@ describe("preflop engine", () => {
     expect(["fold", "call"]).toContain(response.recommended_action.action_type);
   });
 
+  it("supports button versus cutoff open marginal KTo continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Kh", "Td"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports button versus cutoff open suited connector continues", async () => {
     const engine = await enginePromise;
     const request = baseRequest("BTN", ["Th", "9h"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.recommended_action.action_type).toBe("call");
+  });
+
+  it("supports button versus cutoff open lower suited connector continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["6h", "5h"]);
     request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(response.recommended_action.action_type).toBe("call");
@@ -159,6 +223,14 @@ describe("preflop engine", () => {
     const response = expectSupported(engine.evaluate(request));
     expect(response.scenario_key).toBe("6max_cash_100bb_BTN_vs_HJ_open_2.5bb");
     expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports button versus hijack open top premium pair mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Ah", "Ad"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
   });
 
   it("supports button versus hijack open strong offsuit ace decisions", async () => {
@@ -183,6 +255,38 @@ describe("preflop engine", () => {
     request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(response.recommended_action.action_type).toBe("call");
+  });
+
+  it("supports button versus hijack open suited ace pressure hands", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Ah", "4h"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus hijack open lower suited connector continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["6h", "5h"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus hijack open smaller pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["3h", "3d"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus hijack open deeper suited broadway continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Qh", "Th"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
   });
 
   it("supports button versus utg open premium decisions", async () => {
@@ -260,6 +364,163 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("call");
   });
 
+  it("supports big blind versus cutoff open premium decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Qh", "Qd"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.scenario_key).toBe("6max_cash_100bb_BB_vs_CO_open_2.5bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports big blind versus cutoff open suited ace continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Ah", "Jh"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus cutoff open suited broadway continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Kh", "Th"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus cutoff open small pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["5h", "5d"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus cutoff open lower suited connector continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["6h", "5h"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus utg open stronger offsuit ace continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["Ah", "Qd"]);
+    request.action_history = [{ position: "UTG", action: "open", size_bb: 2.0 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports button versus utg open small pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BTN", ["5h", "5d"]);
+    request.action_history = [{ position: "UTG", action: "open", size_bb: 2.0 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus hijack open premium decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Qh", "Qd"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.scenario_key).toBe("6max_cash_100bb_BB_vs_HJ_open_2.5bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports big blind versus hijack open suited ace continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Ah", "Jh"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus hijack open small pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["5h", "5d"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind versus cutoff open premium decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Kh", "Kd"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.scenario_key).toBe("6max_cash_100bb_SB_vs_CO_open_2.5bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports small blind versus cutoff open suited ace pressure continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Ah", "4h"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind versus cutoff open lower suited connector continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["6h", "4h"]);
+    request.action_history = [{ position: "CO", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind versus hijack open premium decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Qh", "Qd"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.scenario_key).toBe("6max_cash_100bb_SB_vs_HJ_open_2.5bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports small blind versus hijack open suited ace pressure continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Ah", "4h"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind versus hijack open lower suited connector continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["9h", "8h"]);
+    request.action_history = [{ position: "HJ", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus utg open premium decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Qh", "Qd"]);
+    request.action_history = [{ position: "UTG", action: "open", size_bb: 2.0 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(response.scenario_key).toBe("6max_cash_100bb_BB_vs_UTG_open_2bb");
+    expect(response.recommended_action.action_type).toBe("3bet");
+  });
+
+  it("supports big blind versus utg open suited ace continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Ah", "Jh"]);
+    request.action_history = [{ position: "UTG", action: "open", size_bb: 2.0 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind versus utg open small pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["5h", "5d"]);
+    request.action_history = [{ position: "UTG", action: "open", size_bb: 2.0 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports small blind first-in baseline coverage", async () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("SB", ["Ah", "9d"])));
@@ -270,6 +531,12 @@ describe("preflop engine", () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("SB", ["Kh", "Td"])));
     expect(response.recommended_action.action_type).toBe("raise");
+  });
+
+  it("supports broader small blind first-in suited king coverage", async () => {
+    const engine = await enginePromise;
+    const response = expectSupported(engine.evaluate(baseRequest("SB", ["Kh", "9h"])));
+    expect(["raise", "fold"]).toContain(response.recommended_action.action_type);
   });
 
   it("maps facing open scenarios", async () => {
@@ -473,9 +740,25 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("3bet");
   });
 
+  it("supports small blind defense versus button open second premium pair mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Kh", "Kd"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports small blind defense versus button open strong offsuit ace decisions", async () => {
     const engine = await enginePromise;
     const request = baseRequest("SB", ["Ah", "Qd"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind defense versus button open linear suited ace decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Ah", "Th"]);
     request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
@@ -487,6 +770,30 @@ describe("preflop engine", () => {
     request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind defense versus button open lower suited connector 3bet mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["6h", "4h"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind defense versus button open smaller pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["3h", "3d"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports small blind defense versus button open offsuit broadway pressure hands", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("SB", ["Kh", "Qd"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
   });
 
   it("supports small blind defense versus button open clear folds", async () => {
@@ -506,9 +813,25 @@ describe("preflop engine", () => {
     expect(response.recommended_action.action_type).toBe("3bet");
   });
 
+  it("supports big blind defense versus button open second premium pair mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Kh", "Kd"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports big blind defense versus button open strong offsuit ace decisions", async () => {
     const engine = await enginePromise;
     const request = baseRequest("BB", ["Ah", "Qd"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind defense versus button open linear suited ace decisions", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Ah", "Th"]);
     request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
@@ -522,12 +845,36 @@ describe("preflop engine", () => {
     expect(["fold", "call"]).toContain(response.recommended_action.action_type);
   });
 
+  it("supports big blind defense versus button open wider offsuit broadway continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["Jh", "Td"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["fold", "call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
   it("supports big blind defense versus button open suited connector continues", async () => {
     const engine = await enginePromise;
     const request = baseRequest("BB", ["Th", "9h"]);
     request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
     const response = expectSupported(engine.evaluate(request));
     expect(response.recommended_action.action_type).toBe("call");
+  });
+
+  it("supports big blind defense versus button open lower suited connector mixes", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["6h", "4h"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
+  });
+
+  it("supports big blind defense versus button open smaller pair continues", async () => {
+    const engine = await enginePromise;
+    const request = baseRequest("BB", ["3h", "3d"]);
+    request.action_history = [{ position: "BTN", action: "open", size_bb: 2.5 }];
+    const response = expectSupported(engine.evaluate(request));
+    expect(["call", "3bet"]).toContain(response.recommended_action.action_type);
   });
 
   it("supports big blind defense versus small blind open premium decisions", async () => {
@@ -643,6 +990,8 @@ describe("preflop engine", () => {
     request.mode = "strict_gto_frequencies";
     const response = expectSupported(engine.evaluate(request));
     expect(response.recommended_action.action_type).toBe("raise");
+    expect(response.recommended_action.pure_simplification_note).toContain("Strict GTO mode");
+    expect(response.warnings.some((warning) => warning.includes("Strict GTO mode is active"))).toBe(true);
   });
 
   it("approximates unsupported sizings by prefix", async () => {
@@ -718,6 +1067,8 @@ describe("preflop engine", () => {
     const engine = await enginePromise;
     const response = expectSupported(engine.evaluate(baseRequest("CO", ["Ah", "Kh"])));
     expect(response.explanation.length).toBeGreaterThan(0);
+    expect(response.explanation[0]).toContain("Context note:");
+    expect(response.explanation.some((line) => line.includes("Mix note:"))).toBe(true);
   });
 
   it("returns unsupported when a valid node has no matching strategy row", async () => {

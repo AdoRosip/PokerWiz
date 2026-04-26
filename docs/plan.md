@@ -209,6 +209,7 @@ Resume source of truth:
 
 - [`docs/progress.md`](progress.md)
 - [`docs/phase2-plan.md`](phase2-plan.md)
+- [`docs/phase3-entry-checklist.md`](phase3-entry-checklist.md)
 
 ## Immediate Next Work
 

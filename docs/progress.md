@@ -64,6 +64,7 @@ This file is the resume point for the project. It should answer two questions qu
 - Electron desktop runtime in place
 - React study UI split into setup and study stages
 - Recommendation panel supports exact / approximate / unsupported flows
+- Strict GTO mode is now surfaced as a full-mix workflow rather than a silent alias of highest-frequency simplification
 - Node coverage metadata is surfaced in the UI
 - Setup-only selectors that are not yet supported are now explicitly non-interactive
 - Pre-Hero action UI no longer offers `raise` before any open has occurred
@@ -78,6 +79,8 @@ This file is the resume point for the project. It should answer two questions qu
 - Unsupported valid nodes return structured unsupported results
 - Pack summary API implemented
 - Node coverage metadata implemented
+- Aggressive-action semantics are centralized between runtime and UI
+- Scenario mapping no longer relies on silent aggressive-size fallbacks
 
 ### Dataset Coverage
 
@@ -110,6 +113,16 @@ Broad coverage exists now for:
   - `SB vs HJ open + CO 3bet`
   - `BTN vs UTG open + HJ 3bet + CO 4bet`
 
+Phase 3 coverage wave progress:
+
+- Wave 1 deepened `BTN vs CO open 2.5bb` with additional premiums, suited aces, medium/small pairs, suited broadways, suited connectors, and marginal offsuit continues
+- Wave 2 deepened `BB vs BTN open 2.5bb` with additional premiums, linear ace/broadway continues, medium/small pairs, more suited connectors, and wider defend mixes
+- Wave 3 deepened `SB vs BTN open 2.5bb` with additional premiums, linear/suited ace pressure hands, pair continues, more suited connectors, and wider polarized defense mixes
+- Wave 4 deepened `BTN vs HJ open 2.5bb` with additional top premiums, suited ace pressure hands, more suited broadways, small pairs, and lower suited connector continues
+- Wave 5 deepened `BB vs CO open 2.5bb` with additional top premiums, suited ace continues, more suited broadways, small pair defend mixes, and lower suited connector continues
+- Wave 6 completed the remaining Tier 2 facing-open family pass by deepening `SB vs CO`, `BB vs HJ`, `SB vs HJ`, `BB vs UTG`, and `BTN vs UTG` with broader premiums, ace-high continues, suited broadways, small pairs, and lower suited connectors
+- Wave 7 completed the grouped Tier 1 RFI broadening pass across `UTG`, `HJ`, `CO`, `BTN`, and `SB` with additional premiums, broadways, small pairs, and wider late-position/small-blind opening classes
+
 ### Tooling
 
 - Pack validator CLI implemented
@@ -136,9 +149,9 @@ Broad coverage exists now for:
 
 At the latest verified point:
 
-- strategy rows: `139`
+- strategy rows: `241`
 - scenarios: `25`
-- tests: `111 passing`
+- tests: `155 passing`
 - pack validation: `passed`
 - manifest generation: `passed`
 - solver import conversion: `passed`
@@ -166,7 +179,7 @@ At the latest verified point:
 
 Current recommended next implementation step:
 
-1. Start Phase 3 with a documented preflop coverage wave driven through the pipeline, not by reverting to blind manual expansion
+1. Tier 1 and Tier 2 priority broadening are now complete; the best next Phase 3 move is a grouped Tier 3 multiway and Tier 4 higher-raise deepening pass across the remaining `open + call`, `3bet`, and `4bet` families
 
 ## Phase Closeout Notes
 

@@ -1,5 +1,7 @@
 import {
+  AGGRESSIVE_PLAYER_ACTIONS,
   ORDERED_POSITIONS,
+  type PlayerActionKind,
   type Position,
   type ScenarioDescriptor,
   type StackBucket,
@@ -22,6 +24,10 @@ export function positionIndex(position: Position): number {
 
 export function actsBefore(left: Position, right: Position): boolean {
   return positionIndex(left) < positionIndex(right);
+}
+
+export function isAggressivePlayerAction(action: PlayerActionKind): boolean {
+  return (AGGRESSIVE_PLAYER_ACTIONS as readonly PlayerActionKind[]).includes(action);
 }
 
 export function parseCard(card: string): { rank: string; suit: string } {

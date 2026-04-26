@@ -155,6 +155,8 @@ export class PreflopStrategyRepository {
   }
 
   private buildCoverage(scenarioKey: string, entries: StrategyEntry[]): NodeCoverage {
+    // Coverage is intentionally measured at hand-class level for pack-completeness reporting.
+    // Combo-only rows remain servable in lookup, but they do not count toward the 169-class coverage metric.
     const coveredHandClasses = new Set(
       entries.filter((entry) => entry.hand_resolution === "hand_class").map((entry) => entry.hand_key),
     ).size;
@@ -192,7 +194,6 @@ export class PreflopStrategyRepository {
       total_entries: this.pack.entries.length,
       fully_covered_scenarios: fullyCovered,
       partially_covered_scenarios: partiallyCovered,
-      empty_scenarios_observed: 0,
       average_scenario_coverage_ratio: scenarios.length === 0 ? 0 : totalCoverageRatio / scenarios.length,
       scenarios,
     };

@@ -7,6 +7,7 @@ export type Mode =
   | "highest_frequency_simplification"
   | "highest_ev_pure";
 export type PlayerActionKind = "fold" | "call" | "open" | "raise" | "all_in";
+export const AGGRESSIVE_PLAYER_ACTIONS = ["open", "raise", "all_in"] as const satisfies readonly PlayerActionKind[];
 export type StackBucket = "20bb" | "40bb" | "60bb" | "100bb" | "150bb_plus";
 export type HandResolution = "combo" | "hand_class";
 export type DatasetMatch = "exact_node" | "approximated_node" | "unsupported";
@@ -80,7 +81,6 @@ export interface PreflopPackSummary {
   total_entries: number;
   fully_covered_scenarios: number;
   partially_covered_scenarios: number;
-  empty_scenarios_observed: number;
   average_scenario_coverage_ratio: number;
   scenarios: PackScenarioCoverageSummary[];
 }

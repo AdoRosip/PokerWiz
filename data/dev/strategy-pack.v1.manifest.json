@@ -4,11 +4,11 @@
   "dataset_version": "solver_dataset_v1_dev",
   "game": "6max_cash",
   "source_pack": "strategy-pack.v1.json",
-  "entry_count": 139,
+  "entry_count": 241,
   "scenario_count": 25,
   "fully_covered_scenarios": 0,
   "partially_covered_scenarios": 25,
-  "average_scenario_coverage_ratio": 0.03289940828402366,
+  "average_scenario_coverage_ratio": 0.05704142011834321,
   "hero_position_scenario_counts": {
     "UTG": 1,
     "HJ": 1,
@@ -27,8 +27,8 @@
   "scenarios": [
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 13,
-      "coverage_ratio": 0.07692307692307693,
+      "covered_hand_classes": 25,
+      "coverage_ratio": 0.14792899408284024,
       "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_BTN_vs_CO_open_2.5bb",
       "hero_position": "BTN",
@@ -36,8 +36,8 @@
     },
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
+      "covered_hand_classes": 17,
+      "coverage_ratio": 0.10059171597633136,
       "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_BB_vs_BTN_open_2.5bb",
       "hero_position": "BB",
@@ -45,8 +45,17 @@
     },
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
+      "covered_hand_classes": 16,
+      "coverage_ratio": 0.09467455621301775,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
+      "hero_position": "SB",
+      "line_signature": "facing_open"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 15,
+      "coverage_ratio": 0.08875739644970414,
       "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_BB_vs_CO_open_2.5bb",
       "hero_position": "BB",
@@ -54,8 +63,8 @@
     },
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
+      "covered_hand_classes": 15,
+      "coverage_ratio": 0.08875739644970414,
       "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_BB_vs_HJ_open_2.5bb",
       "hero_position": "BB",
@@ -63,8 +72,35 @@
     },
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
+      "covered_hand_classes": 15,
+      "coverage_ratio": 0.08875739644970414,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "hero_position": "BTN",
+      "line_signature": "facing_open"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 15,
+      "coverage_ratio": 0.08875739644970414,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
+      "hero_position": "SB",
+      "line_signature": "facing_open"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 15,
+      "coverage_ratio": 0.08875739644970414,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
+      "hero_position": "SB",
+      "line_signature": "facing_open"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 14,
+      "coverage_ratio": 0.08284023668639054,
       "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_BB_vs_UTG_open_2bb",
       "hero_position": "BB",
@@ -72,12 +108,57 @@
     },
     {
       "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
+      "covered_hand_classes": 14,
+      "coverage_ratio": 0.08284023668639054,
       "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_BTN_vs_HJ_open_2.5bb",
+      "matched_scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
       "hero_position": "BTN",
       "line_signature": "facing_open"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 10,
+      "coverage_ratio": 0.05917159763313609,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_BTN_first_in",
+      "hero_position": "BTN",
+      "line_signature": "first_in"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 10,
+      "coverage_ratio": 0.05917159763313609,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_SB_first_in",
+      "hero_position": "SB",
+      "line_signature": "first_in"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 9,
+      "coverage_ratio": 0.05325443786982249,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_CO_first_in",
+      "hero_position": "CO",
+      "line_signature": "first_in"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 9,
+      "coverage_ratio": 0.05325443786982249,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_HJ_first_in",
+      "hero_position": "HJ",
+      "line_signature": "first_in"
+    },
+    {
+      "total_hand_classes": 169,
+      "covered_hand_classes": 9,
+      "coverage_ratio": 0.05325443786982249,
+      "is_complete": false,
+      "matched_scenario_key": "6max_cash_100bb_UTG_first_in",
+      "hero_position": "UTG",
+      "line_signature": "first_in"
     },
     {
       "total_hand_classes": 169,
@@ -87,42 +168,6 @@
       "matched_scenario_key": "6max_cash_100bb_CO_vs_HJ_open_2.5bb",
       "hero_position": "CO",
       "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_SB_vs_BTN_open_2.5bb",
-      "hero_position": "SB",
-      "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_SB_vs_CO_open_2.5bb",
-      "hero_position": "SB",
-      "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_SB_vs_HJ_open_2.5bb",
-      "hero_position": "SB",
-      "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 7,
-      "coverage_ratio": 0.04142011834319527,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_UTG_first_in",
-      "hero_position": "UTG",
-      "line_signature": "first_in"
     },
     {
       "total_hand_classes": 169,
@@ -138,54 +183,9 @@
       "covered_hand_classes": 6,
       "coverage_ratio": 0.03550295857988166,
       "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_BTN_first_in",
-      "hero_position": "BTN",
-      "line_signature": "first_in"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 6,
-      "coverage_ratio": 0.03550295857988166,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_BTN_vs_UTG_open_2bb",
-      "hero_position": "BTN",
-      "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 6,
-      "coverage_ratio": 0.03550295857988166,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_CO_first_in",
-      "hero_position": "CO",
-      "line_signature": "first_in"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 6,
-      "coverage_ratio": 0.03550295857988166,
-      "is_complete": false,
       "matched_scenario_key": "6max_cash_100bb_CO_vs_UTG_open_2bb",
       "hero_position": "CO",
       "line_signature": "facing_open"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 6,
-      "coverage_ratio": 0.03550295857988166,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_HJ_first_in",
-      "hero_position": "HJ",
-      "line_signature": "first_in"
-    },
-    {
-      "total_hand_classes": 169,
-      "covered_hand_classes": 6,
-      "coverage_ratio": 0.03550295857988166,
-      "is_complete": false,
-      "matched_scenario_key": "6max_cash_100bb_SB_first_in",
-      "hero_position": "SB",
-      "line_signature": "first_in"
     },
     {
       "total_hand_classes": 169,

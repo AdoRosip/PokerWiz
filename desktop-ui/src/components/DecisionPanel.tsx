@@ -20,13 +20,15 @@ function coverageLabel(ratio: number): string {
 }
 
 export function DecisionPanel({ request, result, error, loading }: Props) {
+  const title = request.mode === "strict_gto_frequencies" ? "Strategy Mix" : "Best Action";
+
   if (result && result.status !== "supported" && result.status !== "unsupported") {
     return (
       <section className="panel">
         <div className="panel-header">
           <div>
             <p className="eyebrow">Recommendation</p>
-            <h2>Best Action</h2>
+            <h2>{title}</h2>
           </div>
         </div>
         <div className="error-box">Unexpected result state returned by the engine.</div>
@@ -39,7 +41,7 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
       <div className="panel-header">
         <div>
           <p className="eyebrow">Recommendation</p>
-          <h2>Best Action</h2>
+          <h2>{title}</h2>
         </div>
       </div>
 
@@ -138,6 +140,9 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
               Node coverage: {result.node_coverage.covered_hand_classes}/{result.node_coverage.total_hand_classes} hand classes
               ({(result.node_coverage.coverage_ratio * 100).toFixed(1)}%)
             </p>
+            {result.recommended_action.pure_simplification_note ? (
+              <p className="coverage-summary">{result.recommended_action.pure_simplification_note}</p>
+            ) : null}
           </div>
 
           <div className="detail-card">
@@ -212,7 +217,7 @@ export function DecisionPanel({ request, result, error, loading }: Props) {
           </div>
 
           <div className="detail-card">
-            <h3>Explanation</h3>
+            <h3>Context Notes</h3>
             <ul className="plain-list">
               {result.explanation.map((line) => (
                 <li key={line}>{line}</li>

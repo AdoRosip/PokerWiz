@@ -28,6 +28,14 @@ Electron + React + TypeScript.
 - [`docs/progress.md`](docs/progress.md)
 - [`docs/solver-import-contract.md`](docs/solver-import-contract.md)
 - [`docs/phase2-plan.md`](docs/phase2-plan.md)
+- [`docs/phase3-entry-checklist.md`](docs/phase3-entry-checklist.md)
+- [`docs/phase3-coverage-wave-1.md`](docs/phase3-coverage-wave-1.md)
+- [`docs/phase3-coverage-wave-2.md`](docs/phase3-coverage-wave-2.md)
+- [`docs/phase3-coverage-wave-3.md`](docs/phase3-coverage-wave-3.md)
+- [`docs/phase3-coverage-wave-4.md`](docs/phase3-coverage-wave-4.md)
+- [`docs/phase3-coverage-wave-5.md`](docs/phase3-coverage-wave-5.md)
+- [`docs/phase3-coverage-wave-6.md`](docs/phase3-coverage-wave-6.md)
+- [`docs/phase3-coverage-wave-7.md`](docs/phase3-coverage-wave-7.md)
 - [`docs/pack-workflow.md`](docs/pack-workflow.md)
 
 The repository has completed `Phase 2` and is now in `Phase 3`, which is the broader preflop coverage phase.

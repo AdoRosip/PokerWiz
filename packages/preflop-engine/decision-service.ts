@@ -46,6 +46,9 @@ export class DecisionService {
       recommendedAction.pure_simplification_note = "Highest-EV pure action selected";
     } else if (mode === "highest_frequency_simplification" && selected.frequency < 0.95) {
       recommendedAction.pure_simplification_note = `Pure simplification chosen from a mixed strategy; highest frequency action was ${Math.round(selected.frequency * 100)}%`;
+    } else if (mode === "strict_gto_frequencies") {
+      recommendedAction.pure_simplification_note =
+        "Strict GTO mode is active. Use the full strategy mix below; the displayed action is only the highest-frequency anchor for UI display.";
     }
 
     return {
@@ -62,7 +65,13 @@ export class DecisionService {
       },
       node_coverage: lookup.node_coverage,
       explanation: [],
-      warnings: lookup.warnings,
+      warnings:
+        mode === "strict_gto_frequencies"
+          ? [
+              ...lookup.warnings,
+              "Strict GTO mode is active: follow the full strategy mix instead of treating the displayed action as a pure recommendation.",
+            ]
+          : lookup.warnings,
     };
   }
 }

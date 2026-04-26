@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { AGGRESSIVE_PLAYER_ACTIONS } from "../../../shared/contracts";
 import { DecisionPanel } from "../components/DecisionPanel";
 import { InputPanel } from "../components/InputPanel";
 import { evaluatePreflop, getPreflopSummary } from "../lib/engine";
@@ -31,13 +32,17 @@ const coverageLineOptions: CoverageLineFilter[] = [
   "facing_open_3bet_4bet",
 ];
 
-const aggressiveActions = new Set(["open", "raise", "all_in"]);
+function isAggressivePlayerAction(action: EvaluatePreflopRequest["action_history"][number]["action"]): boolean {
+  return (AGGRESSIVE_PLAYER_ACTIONS as readonly EvaluatePreflopRequest["action_history"][number]["action"][]).includes(
+    action,
+  );
+}
 
 function isStudyReady(request: EvaluatePreflopRequest): boolean {
   return (
     request.hero_cards.every((card) => card.length === 2) &&
     request.action_history.every(
-      (entry) => !aggressiveActions.has(entry.action) || (entry.size_bb != null && entry.size_bb > 0),
+      (entry) => !isAggressivePlayerAction(entry.action) || (entry.size_bb != null && entry.size_bb > 0),
     )
   );
 }

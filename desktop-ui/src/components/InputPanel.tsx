@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 
+import { AGGRESSIVE_PLAYER_ACTIONS } from "../../../shared/contracts";
 import type { EvaluatePreflopRequest, PlayerActionKind, Position } from "../types/api";
 
 const positions: Position[] = ["UTG", "HJ", "CO", "BTN", "SB", "BB"];
-const actions: PlayerActionKind[] = ["fold", "call", "open", "raise", "all_in"];
+const actionsAfterAggression: PlayerActionKind[] = ["fold", "call", "raise", "all_in"];
 const ranks = ["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"];
 const suits = [
   { code: "s", label: "Spades", symbol: "S" },
@@ -11,7 +12,6 @@ const suits = [
   { code: "d", label: "Diamonds", symbol: "D" },
   { code: "c", label: "Clubs", symbol: "C" },
 ] as const;
-const aggressiveActions = new Set<PlayerActionKind>(["open", "raise", "all_in"]);
 const seatLayoutClass: Record<Position, string> = {
   UTG: "seat-utg",
   HJ: "seat-hj",
@@ -77,12 +77,12 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
   const commitSeatEntries = (nextEntries: SeatEntry[]) => {
     onChange({
       ...value,
-      action_history: nextEntries.map((entry) => ({
-        position: entry.position,
-        action: entry.action,
-        size_bb: aggressiveActions.has(entry.action) ? entry.size_bb : undefined,
-      })),
-    });
+        action_history: nextEntries.map((entry) => ({
+          position: entry.position,
+          action: entry.action,
+          size_bb: isAggressivePlayerAction(entry.action) ? entry.size_bb : undefined,
+        })),
+      });
   };
 
   const updateSeat = (position: Position, patch: Partial<SeatEntry>) => {
@@ -93,7 +93,7 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
               ...entry,
               ...patch,
               size_bb:
-                patch.action && !aggressiveActions.has(patch.action)
+                patch.action && !isAggressivePlayerAction(patch.action)
                   ? undefined
                   : patch.size_bb ?? entry.size_bb,
             }
@@ -105,16 +105,16 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
   const allowedActionsForSeat = (position: Position): PlayerActionKind[] => {
     let seenAggression = false;
 
-    for (const seat of seatEntries) {
-      if (seat.position === position) {
-        break;
+      for (const seat of seatEntries) {
+        if (seat.position === position) {
+          break;
+        }
+        if (isAggressivePlayerAction(seat.action)) {
+          seenAggression = true;
+        }
       }
-      if (aggressiveActions.has(seat.action)) {
-        seenAggression = true;
-      }
-    }
 
-    return seenAggression ? actions : ["fold", "open", "all_in"];
+    return seenAggression ? actionsAfterAggression : ["fold", "open", "all_in"];
   };
 
   const pickCard = (card: string) => {
@@ -259,7 +259,7 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
                         ))}
                       </select>
 
-                      {aggressiveActions.has(seat.action) ? (
+                      {isAggressivePlayerAction(seat.action) ? (
                         <input
                           type="number"
                           placeholder="size bb"
@@ -288,4 +288,7 @@ export function InputPanel({ value, onChange, onBackToSetup }: Props) {
       </section>
     </div>
   );
+}
+function isAggressivePlayerAction(action: PlayerActionKind): boolean {
+  return (AGGRESSIVE_PLAYER_ACTIONS as readonly PlayerActionKind[]).includes(action);
 }

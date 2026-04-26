@@ -1,11 +1,16 @@
 import type { NormalizedRequest, ScenarioDescriptor } from "../../shared/contracts";
-import { formatBb } from "../game-domain";
+import { DomainError, formatBb, isAggressivePlayerAction } from "../game-domain";
 
-const AGGRESSIVE_ACTIONS = new Set(["open", "raise", "all_in"]);
+function requireAggressiveSize(sizeBb: number | undefined, label: string): number {
+  if (sizeBb == null) {
+    throw new DomainError(`Invariant violation: ${label} requires a pre-normalized aggressive size`);
+  }
+  return sizeBb;
+}
 
 export class ScenarioMapper {
   map(request: NormalizedRequest): ScenarioDescriptor {
-    const aggressive = request.action_history.filter((entry) => AGGRESSIVE_ACTIONS.has(entry.action));
+    const aggressive = request.action_history.filter((entry) => isAggressivePlayerAction(entry.action));
     const callers = request.action_history.filter((entry) => entry.action === "call");
     const warnings: string[] = [];
     const prefix = `6max_cash_${request.stack_bucket}_${request.hero_position}`;
@@ -24,7 +29,7 @@ export class ScenarioMapper {
 
     if (aggressive.length === 1) {
       const open = aggressive[0];
-      const openSize = open.size_bb ?? 2.5;
+      const openSize = requireAggressiveSize(open.size_bb, "open");
       let scenarioKey = `${prefix}_vs_${open.position}_open_${formatBb(openSize)}`;
       if (callers.length > 1) {
         throw new Error("Unsupported action tree: more than one cold caller before hero is unsupported in v1");
@@ -47,12 +52,14 @@ export class ScenarioMapper {
 
     if (aggressive.length === 2) {
       const [open, threeBet] = aggressive;
+      const openSize = requireAggressiveSize(open.size_bb, "open");
+      const threeBetSize = requireAggressiveSize(threeBet.size_bb, "3bet");
       return {
-        scenario_key: `${prefix}_vs_${open.position}_open_${formatBb(open.size_bb ?? 2.5)}_${threeBet.position}_3bet_${formatBb(threeBet.size_bb ?? 8)}`,
+        scenario_key: `${prefix}_vs_${open.position}_open_${formatBb(openSize)}_${threeBet.position}_3bet_${formatBb(threeBetSize)}`,
         line_signature: "facing_open_and_3bet",
         hero_position: request.hero_position,
         stack_bucket: request.stack_bucket,
-        open_size_bb: open.size_bb,
+        open_size_bb: openSize,
         facing_raise_level: 2,
         has_cold_call: callers.length > 0,
         warnings,
@@ -61,12 +68,15 @@ export class ScenarioMapper {
 
     if (aggressive.length === 3) {
       const [open, threeBet, fourBet] = aggressive;
+      const openSize = requireAggressiveSize(open.size_bb, "open");
+      const threeBetSize = requireAggressiveSize(threeBet.size_bb, "3bet");
+      const fourBetSize = requireAggressiveSize(fourBet.size_bb, "4bet");
       return {
-        scenario_key: `${prefix}_vs_${open.position}_open_${formatBb(open.size_bb ?? 2.5)}_${threeBet.position}_3bet_${formatBb(threeBet.size_bb ?? 8)}_${fourBet.position}_4bet_${formatBb(fourBet.size_bb ?? 22)}`,
+        scenario_key: `${prefix}_vs_${open.position}_open_${formatBb(openSize)}_${threeBet.position}_3bet_${formatBb(threeBetSize)}_${fourBet.position}_4bet_${formatBb(fourBetSize)}`,
         line_signature: "facing_open_3bet_4bet",
         hero_position: request.hero_position,
         stack_bucket: request.stack_bucket,
-        open_size_bb: open.size_bb,
+        open_size_bb: openSize,
         facing_raise_level: 3,
         has_cold_call: callers.length > 0,
         warnings,

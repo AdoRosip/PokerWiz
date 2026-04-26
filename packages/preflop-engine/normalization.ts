@@ -10,10 +10,10 @@ import {
   DomainError,
   ensureDistinctCards,
   handClassKey,
+  isAggressivePlayerAction,
+  positionIndex,
   stackBucketFor,
 } from "../game-domain";
-
-const AGGRESSIVE_ACTIONS = new Set(["open", "raise", "all_in"]);
 
 export class NormalizationService {
   normalize(request: EvaluatePreflopRequest): NormalizedRequest {
@@ -46,32 +46,28 @@ export class NormalizationService {
   ): NormalizedAction[] {
     let lastPositionIndex = -1;
     let highestRaiseLevel = 0;
-    let sawLimp = false;
 
     return actionHistory.map((entry) => {
       if (!actsBefore(entry.position, heroPosition)) {
         throw new DomainError(`Invalid action sequence: ${entry.position} acts after hero ${heroPosition}`);
       }
 
-      const currentIndex = ["UTG", "HJ", "CO", "BTN", "SB", "BB"].indexOf(entry.position);
+      const currentIndex = positionIndex(entry.position);
       if (currentIndex <= lastPositionIndex) {
         throw new DomainError("Invalid action sequence: actions must be in table order before hero");
       }
       lastPositionIndex = currentIndex;
 
       if (entry.action === "call" && highestRaiseLevel === 0) {
-        sawLimp = true;
-      }
-      if (sawLimp) {
         throw new DomainError("Unsupported action tree: limp and overlimp trees are out of scope for v1");
       }
 
-      if (AGGRESSIVE_ACTIONS.has(entry.action) && entry.size_bb == null) {
+      if (isAggressivePlayerAction(entry.action) && entry.size_bb == null) {
         throw new DomainError(`Invalid action sequence: aggressive action from ${entry.position} requires a size`);
       }
 
       const normalizedSize = entry.size_bb == null ? undefined : Math.round(entry.size_bb * 10) / 10;
-      if (AGGRESSIVE_ACTIONS.has(entry.action) && normalizedSize != null && normalizedSize <= 0) {
+      if (isAggressivePlayerAction(entry.action) && normalizedSize != null && normalizedSize <= 0) {
         throw new DomainError(
           `Invalid action sequence: aggressive action from ${entry.position} requires a positive size`,
         );
